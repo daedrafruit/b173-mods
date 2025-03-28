@@ -1,14 +1,31 @@
-*
-!.gitignore
-!README.md
+.gradle/
+.idea/
+minecraft_client.iml
+.settings/
+.project
+.classpath
+workspace/
+.vscode/
+options.cfg
 
-!minecraft
-#!minecraft_server
-!build.gradle
-!settings.gradle
-!gradle.properties
-!makefile
-!.nvim.lua
+#dependencies
+conf/
+jars/
+libraries/
 
-!patches
-!patches/*
+#generated files
+bin/
+build/
+game/
+md5/
+output/
+
+#source code
+src_original/
+src/
+
+#other
+minecraft_server/
+notes.txt
+retromcp.bat
+retromcp.sh
