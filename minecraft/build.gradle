@@ -1,0 +1,56 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group 'org.mcphackers'
+version '1.0'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(8)
+    }
+}
+
+configurations {
+    natives
+}
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src']
+        }
+    }
+}
+dependencies {
+    implementation fileTree(dir: '../libraries', include: '**/*.jar')
+    
+    implementation files("${rootDir}/jars/deobfuscated.jar")
+    
+    natives fileTree(dir: "../libraries/natives", includes: ['**/*.dll', '**/*.so', '**/*.dylib'])
+}
+
+application {
+    mainClass = 'org.mcphackers.launchwrapper.Launch'
+    applicationDefaultJvmArgs = [
+        "-Djava.library.path=../libraries/natives",
+    ]
+}
+
+run {
+    args = [
+        '--username', 'Notch',
+        '--session', '-',
+        '--gameDir', '../.minecraft/game',
+        '--assetsDir', '../.minecraft/game/assets',
+        '--resourcesProxyPort', '11705',
+        '--skinProxy', 'pre-b1.9-pre4'
+    ]
+}
+
+task setupNatives(type: Copy) {
+    from configurations.natives
+    into "build/natives"
+}
+
+compileJava.dependsOn setupNatives

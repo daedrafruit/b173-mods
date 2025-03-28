@@ -1,0 +1,14 @@
+*
+!.gitignore
+!README.md
+
+!minecraft
+#!minecraft_server
+!build.gradle
+!settings.gradle
+!gradle.properties
+!makefile
+!.nvim.lua
+
+!patches
+!patches/*
