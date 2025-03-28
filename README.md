@@ -5,7 +5,7 @@ cd RetroMCP-Java
   
 cd ..  
 git clone git@github.com:daedrafruit/b173-mods.git
-cd modcreation
+cd b173-mods
 <java-8> -jar ../RetroMCP-Java/build/libs/RetroMCP-CLI-all.jar  
   
 setup b1.7.3  
