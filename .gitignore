@@ -4,6 +4,7 @@ minecraft_client.iml
 .settings/
 .project
 .classpath
+Client.launch
 workspace/
 .vscode/
 options.cfg
@@ -19,6 +20,7 @@ build/
 game/
 md5/
 output/
+reobf/
 
 #source code
 src_original/
