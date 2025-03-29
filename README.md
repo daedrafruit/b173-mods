@@ -15,58 +15,58 @@ exit
 git restore .  
 ```  
 
-BlockBackport
--uu Block
--ew ChunkCache
--hk CraftingManager (also includes leather for books)
--fd World
--ys BlockStep
-+lang
-
- Fix Sounds + Names
- -uu Block
- -ys BlockStep (for cobble slab name)
- +lang for names
-
- -cv RenderBlocks (fencegate)
- -BlockFenceGate (fencegate)
- -BlockIronTrapdoor (fencegate)
- -au ItemPickaxe (toolfix)
- -ta ItemAxe (toolfix)
- -bb RenderItem (bigitemfix)
-
-Fix Sounds
--fo BlockJukebox
--pt BlockNote
--ve BlockBed
-
-ToolFix
--au ItemPickaxe
--wc ItemSpade
--ta ItemAxe
-
-Fix Bookshelf Drops
--hb BlockBookshelf
-
-Reduce Mining Delay
--os PlayerControllerSP
-
-Fix Stair Drops
--ss BlockStairs
-
-Fix Big Dropped Items
--bb RenderItem
-
-Floating Fence
--jw BlockFence
-
-Pressure Plate Fence
--bv BlockPressurePlate
-
-Leather for book recipe
--hk CraftingManager
-
-FoggyWeather
+BlockBackport  
+-uu Block  
+-ew ChunkCache  
+-hk CraftingManager (also includes leather for books)  
+-fd World  
+-ys BlockStep  
++lang  
+  
+ Fix Sounds + Names  
+ -uu Block  
+ -ys BlockStep (for cobble slab name)  
+ +lang for names  
+  
+ -cv RenderBlocks (fencegate)  
+ -BlockFenceGate (fencegate)  
+ -BlockIronTrapdoor (fencegate)  
+ -au ItemPickaxe (toolfix)  
+ -ta ItemAxe (toolfix)  
+ -bb RenderItem (bigitemfix)  
+  
+Fix Sounds  
+-fo BlockJukebox  
+-pt BlockNote  
+-ve BlockBed  
+  
+ToolFix  
+-au ItemPickaxe  
+-wc ItemSpade  
+-ta ItemAxe  
+  
+Fix Bookshelf Drops  
+-hb BlockBookshelf  
+  
+Reduce Mining Delay  
+-os PlayerControllerSP  
+  
+Fix Stair Drops  
+-ss BlockStairs  
+  
+Fix Big Dropped Items  
+-bb RenderItem  
+  
+Floating Fence  
+-jw BlockFence  
+  
+Pressure Plate Fence  
+-bv BlockPressurePlate  
+  
+Leather for book recipe  
+-hk CraftingManager  
+  
+FoggyWeather  
 -px EntityRenderer
 
 Far Lands Jitter
