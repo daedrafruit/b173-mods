@@ -67,61 +67,61 @@ Leather for book recipe
 -hk CraftingManager  
   
 FoggyWeather  
--px EntityRenderer
-
-Far Lands Jitter
--tg RenderList
-
-Far Lands Blocks
--gk BlockSand
-
-Skin Fix
--dc EntityPlayerSP
--gs EntityPlayer
--xz EntityOtherPlayerMP
--ModRetrieveSkin
-
-Floating trap door
--oq BlockTrapDoor
-
-Crash Slab Fix (incompatible with TMI)
--id GuiContainer
-
-Music Dics
--gb EntityCreeper
--gm Item
--n RenderGlobal (only for artist names, can be removed safely)
-
-ABC List
--au ItemPickaxe
--bb RenderItem
--bv BlockPressurePlate
--cv RenderBlocks
--dc EntityPlayerSP
--eo BlockStone
--ew ChunkCache
--fd World
--fo BlockJukebox
--gb EntityCreeper
--gk BlockSand
--gm Item
--gs EntityPlayer
--hb BlockbookShelf
--hk CraftingManager
--jq BlockPistonBase?
--jw BlockFence
--oq BlockTrapDoor
--os PlayerControllerSP
--n RenderGlobal
--ot BlockDirt
--pt BlockNote
--px EntityRenderer
--ss BlockStairs
--ta ItemAxe
--tg RenderList
--uu Block
--ve BlockBed?
--wc ItemSpade
--xk PlayerControlerMP
--xz EntityOtherPlayerMP
--ys BlockStep
+-px EntityRenderer  
+  
+Far Lands Jitter  
+-tg RenderList  
+  
+Far Lands Blocks  
+-gk BlockSand  
+  
+Skin Fix  
+-dc EntityPlayerSP  
+-gs EntityPlayer  
+-xz EntityOtherPlayerMP  
+-ModRetrieveSkin  
+  
+Floating trap door  
+-oq BlockTrapDoor  
+  
+Crash Slab Fix (incompatible with TMI)  
+-id GuiContainer  
+  
+Music Dics  
+-gb EntityCreeper  
+-gm Item  
+-n RenderGlobal (only for artist names, can be removed safely)  
+  
+ABC List  
+-au ItemPickaxe  
+-bb RenderItem  
+-bv BlockPressurePlate  
+-cv RenderBlocks  
+-dc EntityPlayerSP  
+-eo BlockStone  
+-ew ChunkCache  
+-fd World  
+-fo BlockJukebox  
+-gb EntityCreeper  
+-gk BlockSand  
+-gm Item  
+-gs EntityPlayer  
+-hb BlockbookShelf  
+-hk CraftingManager  
+-jq BlockPistonBase?  
+-jw BlockFence  
+-oq BlockTrapDoor  
+-os PlayerControllerSP  
+-n RenderGlobal  
+-ot BlockDirt  
+-pt BlockNote  
+-px EntityRenderer  
+-ss BlockStairs  
+-ta ItemAxe  
+-tg RenderList  
+-uu Block  
+-ve BlockBed?  
+-wc ItemSpade  
+-xk PlayerControlerMP  
+-xz EntityOtherPlayerMP  
+-ys BlockStep  
