@@ -10,10 +10,26 @@ vim.keymap.set('n', '<leader>fj', function()
 					"--files",
 					"--glob", "*.java",
 					"--glob", "!src_original/*",
+					"--glob", "!src_modded/*",
 				},
     })
 end, { noremap = true, silent = true })
 
+vim.keymap.set('n', '<leader>fJ', function()
+    builtin.find_files({
+        hidden = true,
+        no_ignore = true,
+        no_ignore_parent = true,
+				find_command = { 
+					"rg",
+					"--files",
+					"--glob", "*.java",
+					"--glob", "!src_original/*",
+					"--glob", "!src/*",
+				},
+    })
+
+end, { noremap = true, silent = true })
 -- for grep
 vim.keymap.set('n', '<leader>fg', function()
     builtin.live_grep({
