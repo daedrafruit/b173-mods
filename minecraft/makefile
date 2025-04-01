@@ -8,7 +8,7 @@ else
 	$(error Unsupported platform: $(UNAME))
 endif
 
-all: build
+all: clean build
 
 clean:
 	$(GRADLEW) clean
