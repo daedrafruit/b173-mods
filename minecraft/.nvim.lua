@@ -40,6 +40,7 @@ vim.keymap.set('n', '<leader>fg', function()
                 "--no-ignore-parent",
                 "--glob", "*.java",
                 "--glob", "!src_original/*",
+								"--glob", "!src_modded/*",
             }
         end,
     })
