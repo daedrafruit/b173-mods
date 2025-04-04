@@ -3,6 +3,7 @@ package net.minecraft.src;
 public class EntityCreeper extends EntityMob {
 	int timeSinceIgnited;
 	int lastActiveTime;
+	private static ModConfig config = new ModConfig("DiscConfig.txt", "ModernDiscs=0\n");
 
 	public EntityCreeper(World var1) {
 		super(var1);
@@ -79,7 +80,12 @@ public class EntityCreeper extends EntityMob {
 	public void onDeath(Entity var1) {
 		super.onDeath(var1);
 		if(var1 instanceof EntitySkeleton) {
-			this.dropItem(Item.record13.shiftedIndex + this.rand.nextInt(16), 1);
+			if(config.getProperty("ModernDiscs").equals("1")) {
+				this.dropItem(Item.record13.shiftedIndex + this.rand.nextInt(16), 1);
+			}
+			else {
+				this.dropItem(Item.record13.shiftedIndex + this.rand.nextInt(12), 1);
+			}
 		}
 
 	}
