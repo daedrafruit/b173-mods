@@ -292,7 +292,6 @@ public class World implements IBlockAccess {
 	}
 
 	private void saveLevel() {
-	private void saveLevel() {
 		this.checkSessionLock();
 		this.saveHandler.saveWorldInfoAndPlayer(this.worldInfo, this.playerEntities);
 		this.field_28108_z.saveAllData();

@@ -14,6 +14,7 @@ public class Block {
 	public static final StepSound soundClothFootstep = new StepSound("cloth", 1.0F, 1.0F);
 	public static final StepSound soundSandFootstep = new StepSoundSand("sand", 1.0F, 1.0F);
 	public static final Block[] blocksList = new Block[256];
+	public static ModConfig config = new ModConfig("parker_mod.ini", "FixFarJitter=1\nFixFarGravityBlocks=1\nBrickStairs=1\nSandstoneStairs=1\nBrickSlab=1\nFenceGate=1\nWoodButton=1\nIronTrapdoor=1\nFloatingIronTrapdoor=1\nToolFix=1\nBigDroppedItemsFix=1\n# ModernWoodButtonRecipe: 0 = 2 Logs (custom, keeps wood buttons priced relative to stone buttons), 1 = 1 Plank (modern vanilla)\nModernWoodButtonRecipe=0\n# ModernStoneButtonRecipe: 0 = 2 Stone, 1 = 1 Stone (modern vanilla)\nModernStoneButtonRecipe=0\nLeatherBookRecipe=1\n# FixBookshelvesDropNothing: 0 = Nothing (vanilla), 1 = x3 Books (modern vanilla), 2 = x1 Bookshelf\nFixBookshelvesDropNothing=1\n# BedSound: 0 = Stone (vanilla), 1 = Wood (modern vanilla), 2 = Cloth\nBedSound=2\nJukeboxSound=1\nNoteblockSound=1\nFixFenceCollision=1\nPlaceFloatingFence=1\nPlacePressurePlateOnFence=1\n# ModernDiscs: 0 = Vanilla (13, cat), 1 = Classic discs (adds blocks/chirp/far/mall/mellohi/stal/strad/ward/11/wait), 2 = All discs including modern (adds Pigstep/otherside/Five/Relic)\nModernDiscs=1\nGoldSilkTouch=1\nClickFix=1\nFloatingTrapDoor=1\nCrashSlabFix=1\nSkinFix=1\nWhirlpoolFix=1\nStairDropFix=1\nCobwebRecipe=1\n");
 	public static final boolean[] tickOnLoad = new boolean[256];
 	public static final boolean[] opaqueCubeLookup = new boolean[256];
 	public static final boolean[] isBlockContainer = new boolean[256];
@@ -117,6 +118,11 @@ public class Block {
 	public static final Block redstoneRepeaterActive = (new BlockRedstoneRepeater(94, true)).setHardness(0.0F).setLightValue(10.0F / 16.0F).setStepSound(soundWoodFootstep).setBlockName("diode").disableStats().disableNeighborNotifyOnMetadataChange();
 	public static final Block lockedChest = (new BlockLockedChest(95)).setHardness(0.0F).setLightValue(1.0F).setStepSound(soundWoodFootstep).setBlockName("lockedchest").setTickOnLoad(true).disableNeighborNotifyOnMetadataChange();
 	public static final Block trapdoor = (new BlockTrapDoor(96, Material.wood)).setHardness(3.0F).setStepSound(soundWoodFootstep).setBlockName("trapdoor").disableStats().disableNeighborNotifyOnMetadataChange();
+	public static final Block stairCompactBrick = (new BlockStairs(108, brick)).setBlockName("stairsBrick").disableNeighborNotifyOnMetadataChange();
+	public static final Block stairCompactSandstone = (new BlockStairs(128, sandStone)).setBlockName("stairsSandstone").disableNeighborNotifyOnMetadataChange();
+	public static final Block fenceGate = (new BlockFenceGate(107, 4)).setHardness(2.0F).setResistance(5.0F).setStepSound(soundWoodFootstep).setBlockName("fenceGate").disableNeighborNotifyOnMetadataChange();
+	public static final Block buttonWood = (new BlockButton(143, planks.blockIndexInTexture)).setHardness(0.5F).setStepSound(soundWoodFootstep).setBlockName("button").disableNeighborNotifyOnMetadataChange();
+	public static final Block trapdoorIron = (new BlockTrapDoorIron(97, Material.iron)).setHardness(5.0F).setStepSound(soundMetalFootstep).setBlockName("trapdoorIron").disableStats().disableNeighborNotifyOnMetadataChange();
 	public int blockIndexInTexture;
 	public final int blockID;
 	protected float blockHardness;
@@ -518,18 +524,17 @@ public class Block {
 	public void setBlockBoundsForItemRender() {
 	}
 
-	static ModConfig goldSilkTouchConfig = new ModConfig("ToolFixConfig.txt", "GoldSilkTouch=1\n");
-
 	public void harvestBlock(World var1, EntityPlayer var2, int var3, int var4, int var5, int var6) {
 		var2.addStat(StatList.mineBlockStatArray[this.blockID], 1);
 		ItemStack var7 = var2.getCurrentEquippedItem();
 		int var8 = var7 != null ? var7.itemID : -1;
-		boolean var9 = var8 == Item.pickaxeGold.shiftedIndex && (this == Block.stone || this == Block.glass || this == Block.oreGold || this == Block.oreIron || this == Block.oreCoal || this == Block.oreLapis || this == Block.oreDiamond || this == Block.oreRedstone || this == Block.oreRedstoneGlowing || this == Block.glowStone || this == Block.stairCompactCobblestone || this == Block.blocksList[108] || this == Block.blocksList[128]);
+		boolean var9 = var8 == Item.pickaxeGold.shiftedIndex && (this == Block.stone || this == Block.glass || this == Block.oreGold || this == Block.oreIron || this == Block.oreCoal || this == Block.oreLapis || this == Block.oreDiamond || this == Block.oreRedstone || this == Block.oreRedstoneGlowing || this == Block.glowStone || this == Block.stairCompactCobblestone || this == Block.blocksList[108] || this == Block.blocksList[128] || this == Block.ice);
 		boolean var10 = var8 == Item.shovelGold.shiftedIndex && (this == Block.gravel || this == Block.blockClay || this == Block.grass || this == Block.blockSnow);
-		boolean var11 = (var8 == Item.swordGold.shiftedIndex || var8 == Item.shears.shiftedIndex) && (this == Block.leaves || this == Block.web || this == Block.tallGrass || this == Block.deadBush);
+		boolean var11 = (var8 == Item.swordGold.shiftedIndex || var8 == Item.shears.shiftedIndex) && (this == Block.leaves || this == Block.tallGrass || this == Block.deadBush);
 		boolean var12 = var8 == Item.axeGold.shiftedIndex && (this == Block.bookShelf || this == Block.stairCompactPlanks);
+		boolean var15 = var8 == Item.shears.shiftedIndex && this == Block.web;
 
-		if((var9 || var10 || var11 || var12) && goldSilkTouchConfig.getProperty("GoldSilkTouch").equals("1")) {
+		if(((var9 || var10 || var11 || var12) && config.getProperty("GoldSilkTouch").equals("1")) || var15) {
 			int var13 = this == Block.oreRedstoneGlowing ? Block.oreRedstone.blockID : this.blockID;
 			int var14 = this == Block.leaves ? var6 & 3 : var6;
 			this.dropBlockAsItem_do(var1, var3, var4, var5, new ItemStack(var13, 1, var14));

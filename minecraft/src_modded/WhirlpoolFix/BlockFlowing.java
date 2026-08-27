@@ -51,7 +51,7 @@ public class BlockFlowing extends BlockFluid {
 			if(this.numAdjacentSources >= 2 && this.blockMaterial == Material.water) {
 				if(var1.getBlockMaterial(var2, var3 - 1, var4).isSolid()) {
 					var10 = 0;
-				} else if(var1.getBlockMaterial(var2, var3 - 1, var4) == this.blockMaterial && this.getEffectiveFlowDecay(var1, var2, var3 - 1, var4) == 0) {
+				} else if(var1.getBlockMaterial(var2, var3 - 1, var4) == this.blockMaterial && (Block.config.getProperty("WhirlpoolFix").equals("1") ? this.getEffectiveFlowDecay(var1, var2, var3 - 1, var4) == 0 : var1.getBlockMetadata(var2, var3, var4) == 0)) {
 					var10 = 0;
 				}
 			}

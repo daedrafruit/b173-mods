@@ -91,7 +91,7 @@ public class BlockStairs extends Block {
 	}
 
 	public int idDropped(int var1, Random var2) {
-		return this.blockID;
+		return Block.config.getProperty("StairDropFix").equals("1") ? this.blockID : this.modelBlock.idDropped(var1, var2);
 	}
 
 	public int quantityDropped(Random var1) {
@@ -144,7 +144,11 @@ public class BlockStairs extends Block {
 	}
 
 	public void dropBlockAsItemWithChance(World var1, int var2, int var3, int var4, int var5, float var6) {
-		super.dropBlockAsItemWithChance(var1, var2, var3, var4, var5, var6);
+		if(Block.config.getProperty("StairDropFix").equals("1")) {
+			super.dropBlockAsItemWithChance(var1, var2, var3, var4, var5, var6);
+		} else {
+			this.modelBlock.dropBlockAsItemWithChance(var1, var2, var3, var4, var5, var6);
+		}
 	}
 
 	public void onEntityWalking(World var1, int var2, int var3, int var4, Entity var5) {

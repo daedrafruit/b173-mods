@@ -93,7 +93,6 @@ public class BlockTrapDoor extends Block {
 	}
 
 	public void onNeighborBlockChange(World var1, int var2, int var3, int var4, int var5) {
-	public void onNeighborBlockChange(World var1, int var2, int var3, int var4, int var5) {
 		if(!var1.multiplayerWorld) {
 			int var6 = var1.getBlockMetadata(var2, var3, var4);
 			int var7 = var2;

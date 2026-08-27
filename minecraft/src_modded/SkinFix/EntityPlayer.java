@@ -286,7 +286,6 @@ public abstract class EntityPlayer extends EntityLiving {
 	}
 
 	protected void joinEntityItemWithWorld(EntityItem var1) {
-	protected void joinEntityItemWithWorld(EntityItem var1) {
 		this.worldObj.entityJoinedWorld(var1);
 	}
 
