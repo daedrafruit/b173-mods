@@ -21,10 +21,12 @@ game/
 md5/
 output/
 reobf/
+parker_mod.ini
 
 #source code
 src_original/
 src/
+resources/
 
 #other
 minecraft_server/
