@@ -33,7 +33,9 @@ dependencies {
 application {
     mainClass = 'org.mcphackers.launchwrapper.Launch'
     applicationDefaultJvmArgs = [
-        "-Djava.library.path=../libraries/natives"
+        "-Djava.library.path=../libraries/natives",
+				"-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=5005 -jar app.jar"
+
     ]
 }
 

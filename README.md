@@ -91,7 +91,10 @@ Music Dics
 -gb EntityCreeper  
 -gm Item  
 -n RenderGlobal (only for artist names, can be removed safely)  
-  
+
+Water Flow (Whirlpool) Fix  
+-om BlockFlowing  
+
 ABC List  
 -au ItemPickaxe  
 -bb RenderItem  
@@ -110,6 +113,7 @@ ABC List
 -hk CraftingManager  
 -jq BlockPistonBase?  
 -jw BlockFence  
+-om BlockFlowing  
 -oq BlockTrapDoor  
 -os PlayerControllerSP  
 -n RenderGlobal  
