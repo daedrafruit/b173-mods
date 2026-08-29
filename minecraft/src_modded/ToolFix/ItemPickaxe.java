@@ -8,7 +8,7 @@ public class ItemPickaxe extends ItemTool {
 	}
 
 	public boolean canHarvestBlock(Block var1) {
-		int var2 = this.toolMaterial == EnumToolMaterial.GOLD && Block.goldSilkTouchConfig.getProperty("GoldSilkTouch").equals("1") ? 3 : this.toolMaterial.getHarvestLevel();
+		int var2 = this.toolMaterial == EnumToolMaterial.GOLD && Block.config.getProperty("GoldSilkTouch").equals("1") ? 2 : this.toolMaterial.getHarvestLevel();
 		return var1 == Block.obsidian ? var2 == 3 : (var1 != Block.blockDiamond && var1 != Block.oreDiamond ? (var1 != Block.blockGold && var1 != Block.oreGold ? (var1 != Block.blockSteel && var1 != Block.oreIron ? (var1 != Block.blockLapis && var1 != Block.oreLapis ? (var1 != Block.oreRedstone && var1 != Block.oreRedstoneGlowing ? (var1.blockMaterial == Material.rock ? true : var1.blockMaterial == Material.iron) : var2 >= 2) : var2 >= 1) : var2 >= 1) : var2 >= 2) : var2 >= 2);
 	}
 }
