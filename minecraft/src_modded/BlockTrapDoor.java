@@ -113,6 +113,11 @@ public class BlockTrapDoor extends Block {
 				--var7;
 			}
 
+			if(!var1.isBlockNormalCube(var7, var3, var8) && Block.config.getProperty("FloatingTrapDoor").equals("0")) {
+				var1.setBlockWithNotify(var2, var3, var4, 0);
+				this.dropBlockAsItem(var1, var2, var3, var4, var6);
+			}
+
 			if(var5 > 0 && Block.blocksList[var5].canProvidePower()) {
 				boolean var9 = var1.isBlockIndirectlyGettingPowered(var2, var3, var4);
 				this.onPoweredBlockChange(var1, var2, var3, var4, var9);

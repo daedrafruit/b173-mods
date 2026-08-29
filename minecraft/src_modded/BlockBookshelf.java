@@ -14,10 +14,12 @@ public class BlockBookshelf extends Block {
 	}
 
 	public int idDropped(int var1, Random var2) {
+    //add block to drop
 		return this.config.getProperty("FixBookshelvesDropNothing").equals("1") ? Item.book.shiftedIndex : Block.bookShelf.blockID;
 	}
 
 	public int quantityDropped(Random var1) {
+    //configure amount dropped
 		return this.config.getProperty("FixBookshelvesDropNothing").equals("1") ? 3 : (this.config.getProperty("FixBookshelvesDropNothing").equals("2") ? 1 : 0);
 	}
 }

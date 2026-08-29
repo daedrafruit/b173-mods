@@ -7,39 +7,40 @@ public class BlockFence extends Block {
 		super(var1, var2, Material.wood);
 	}
 
-	public boolean canPlaceBlockAt(World var1, int var2, int var3, int var4) {
-		return this.config.getProperty("PlaceFloatingFence").equals("0") ? (var1.getBlockId(var2, var3 - 1, var4) == this.blockID ? true : (!var1.getBlockMaterial(var2, var3 - 1, var4).isSolid() ? false : super.canPlaceBlockAt(var1, var2, var3, var4))) : super.canPlaceBlockAt(var1, var2, var3, var4);
+	public boolean canPlaceBlockAt(World world, int x, int y, int z) {
+		return this.config.getProperty("PlaceFloatingFence").equals("0") ? (world.getBlockId(x, y - 1, z) == this.blockID ? true : (!world.getBlockMaterial(x, y - 1, z).isSolid() ? false : super.canPlaceBlockAt(world, x, y, z))) : super.canPlaceBlockAt(world, x, y, z);
 	}
 
-	public AxisAlignedBB getCollisionBoundingBoxFromPool(World var1, int var2, int var3, int var4) {
+	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {
 		if(this.config.getProperty("FixFenceCollision").equals("0")) {
-			return AxisAlignedBB.getBoundingBoxFromPool((double)var2, (double)var3, (double)var4, (double)(var2 + 1), (double)((float)var3 + 1.5F), (double)(var4 + 1));
-		} else {
-			boolean var5 = this.isFenceAt(var1, var2, var3, var4 - 1);
-			boolean var6 = this.isFenceAt(var1, var2, var3, var4 + 1);
-			boolean var7 = this.isFenceAt(var1, var2 - 1, var3, var4);
-			boolean var8 = this.isFenceAt(var1, var2 + 1, var3, var4);
+			return AxisAlignedBB.getBoundingBoxFromPool((double)x, (double)y, (double)z, (double)(x + 1), (double)((float)y + 1.5F), (double)(z + 1));
+		} 
+    else {
+			boolean isFenceMinusZ = this.isFenceAt(world, x, y, z - 1);
+			boolean isFencePlusZ = this.isFenceAt(world, x, y, z + 1);
+			boolean isFenceMinusX = this.isFenceAt(world, x - 1, y, z);
+			boolean isFencePlusX = this.isFenceAt(world, x + 1, y, z);
 			float var9 = 6.0F / 16.0F;
 			float var10 = 10.0F / 16.0F;
 			float var11 = 6.0F / 16.0F;
 			float var12 = 10.0F / 16.0F;
-			if(var5) {
+			if(isFenceMinusZ) {
 				var11 = 0.0F;
 			}
 
-			if(var6) {
+			if(isFencePlusZ) {
 				var12 = 1.0F;
 			}
 
-			if(var7) {
+			if(isFenceMinusX) {
 				var9 = 0.0F;
 			}
 
-			if(var8) {
+			if(isFencePlusX) {
 				var10 = 1.0F;
 			}
 
-			return AxisAlignedBB.getBoundingBoxFromPool((double)((float)var2 + var9), (double)var3, (double)((float)var4 + var11), (double)((float)var2 + var10), (double)((float)var3 + 1.5F), (double)((float)var4 + var12));
+			return AxisAlignedBB.getBoundingBoxFromPool((double)((float)x + var9), (double)y, (double)((float)z + var11), (double)((float)x + var10), (double)((float)y + 1.5F), (double)((float)z + var12));
 		}
 	}
 
@@ -55,29 +56,29 @@ public class BlockFence extends Block {
 		return 11;
 	}
 
-	public void setBlockBoundsBasedOnState(IBlockAccess var1, int var2, int var3, int var4) {
-		if(this.config.getProperty("FixFenceCollision").equals("1")) {
-			boolean var5 = this.isFenceAt(var1, var2, var3, var4 - 1);
-			boolean var6 = this.isFenceAt(var1, var2, var3, var4 + 1);
-			boolean var7 = this.isFenceAt(var1, var2 - 1, var3, var4);
-			boolean var8 = this.isFenceAt(var1, var2 + 1, var3, var4);
+	public void setBlockBoundsBasedOnState(IBlockAccess block, int x, int y, int z) {
+    if(this.config.getProperty("FixFenceCollision").equals("1")) {
+			boolean isFenceMinusZ = this.isFenceAt(block, x, y, z - 1);
+			boolean isFencePlusZ = this.isFenceAt(block, x, y, z + 1);
+			boolean isFenceMinusX = this.isFenceAt(block, x - 1, y, z);
+			boolean isFencePlusX = this.isFenceAt(block, x + 1, y, z);
 			float var9 = 6.0F / 16.0F;
 			float var10 = 10.0F / 16.0F;
 			float var11 = 6.0F / 16.0F;
 			float var12 = 10.0F / 16.0F;
-			if(var5) {
+			if(isFenceMinusZ) {
 				var11 = 0.0F;
 			}
 
-			if(var6) {
+			if(isFenceMinusX) {
 				var12 = 1.0F;
 			}
 
-			if(var7) {
+			if(isFenceMinusX) {
 				var9 = 0.0F;
 			}
 
-			if(var8) {
+			if(isFencePlusX) {
 				var10 = 1.0F;
 			}
 

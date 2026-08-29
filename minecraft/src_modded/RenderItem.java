@@ -5,7 +5,6 @@ import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
 
 public class RenderItem extends Render {
-	private static ModConfig config = new ModConfig("BlockBackportsConfig.txt", "BrickStairs=1\nSandstoneStairs=1\nBrickSlab=1\nFenceGate=1\nWoodButton=1\nIronTrapdoor=1\nFloatingIronTrapdoor=0\nToolFix=0\nBigDroppedItemsFix=0\n# Custom wood button recipe is like the button/stick recipe, but with logs, otherwise wood buttons are far too cheap, relative to stone buttons\nModernWoodButtonRecipe=0\nModernStoneButtonRecipe=0\nLeatherBookRecipe=0\n");
 	private RenderBlocks renderBlocks = new RenderBlocks();
 	private Random random = new Random();
 	public boolean field_27004_a = true;
@@ -47,7 +46,7 @@ public class RenderItem extends Render {
 				var28 = 0.5F;
 			}
 
-			if(config.getProperty("BigDroppedItemsFix").equals("1") && var10 != null && (var10.itemID == Block.cactus.blockID || var10.itemID == Block.pressurePlatePlanks.blockID || var10.itemID == Block.pressurePlateStone.blockID || var10.itemID == Block.cake.blockID || var10.itemID == Block.button.blockID || var10.itemID == Block.trapdoor.blockID || var10.itemID == Block.snow.blockID || var10.itemID == Block.fence.blockID || var10.itemID == Block.stairCompactCobblestone.blockID || var10.itemID == Block.stairCompactPlanks.blockID || var10.itemID == Block.stairCompactBrick.blockID || var10.itemID == Block.stairCompactSandstone.blockID || var10.itemID == Block.fenceGate.blockID || var10.itemID == Block.buttonWood.blockID || var10.itemID == Block.trapdoorIron.blockID)) {
+			if(Block.config.getProperty("BigDroppedItemsFix").equals("1") && var10 != null && (var10.itemID == Block.cactus.blockID || var10.itemID == Block.pressurePlatePlanks.blockID || var10.itemID == Block.pressurePlateStone.blockID || var10.itemID == Block.cake.blockID || var10.itemID == Block.button.blockID || var10.itemID == Block.trapdoor.blockID || var10.itemID == Block.snow.blockID || var10.itemID == Block.fence.blockID || var10.itemID == Block.stairCompactCobblestone.blockID || var10.itemID == Block.stairCompactPlanks.blockID || var10.itemID == Block.stairCompactBrick.blockID || var10.itemID == Block.stairCompactSandstone.blockID || var10.itemID == Block.fenceGate.blockID || var10.itemID == Block.buttonWood.blockID || var10.itemID == Block.trapdoorIron.blockID)) {
 				var28 = 0.25F;
 			}
 

@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Random;
 
 public class BlockPressurePlate extends Block {
-	private ModConfig config = new ModConfig("FenceFixConfig.txt", "# Fix fences.\n# 0 = Disabled\n# 1 = Enabled\nFixFenceCollision=1\nPlaceFloatingFence=1\nPlacePressurePlateOnFence=1\n");
 	private EnumMobType triggerMobType;
 
 	protected BlockPressurePlate(int var1, int var2, EnumMobType var3, Material var4) {

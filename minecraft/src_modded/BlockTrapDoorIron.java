@@ -1,8 +1,6 @@
 package net.minecraft.src;
 
 public class BlockTrapDoorIron extends Block {
-	private static ModConfig config = new ModConfig("BlockBackportsConfig.txt", "BrickStairs=1\nSandstoneStairs=1\nBrickSlab=1\nFenceGate=1\nWoodButton=1\nIronTrapdoor=1\nFloatingIronTrapdoor=0\nToolFix=0\nBigDroppedItemsFix=0\n# Custom wood button recipe is like the button/stick recipe, but with logs, otherwise wood buttons are far too cheap, relative to stone buttons\nModernWoodButtonRecipe=0\nModernStoneButtonRecipe=0\nLeatherBookRecipe=0\n");
-
 	protected BlockTrapDoorIron(int var1, Material var2) {
 		super(var1, var2);
 		this.blockIndexInTexture = 84;

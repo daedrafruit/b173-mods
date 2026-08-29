@@ -9,40 +9,41 @@ import java.util.Properties;
 public class ModConfig {
 	private Properties properties = new Properties();
 
-	public ModConfig(String var1, String var2) {
+	public ModConfig(String fileName, String body) {
 		try {
-			File var3 = new File(var1);
-			if(!var3.exists()) {
-				this.createDefaultConfig(var3, var2);
+			File file = new File(fileName);
+			if(!file.exists()) {
+				this.createDefaultConfig(file, body);
 			}
 
-			FileInputStream var4 = new FileInputStream(var1);
-			this.properties.load(var4);
-			var4.close();
-		} catch (IOException var5) {
-			var5.printStackTrace();
-			System.err.println("Error handling the configuration file: " + var5.getMessage());
+			FileInputStream input = new FileInputStream(fileName);
+			this.properties.load(input);
+			input.close();
+		} 
+    catch (IOException exception) {
+			exception.printStackTrace();
+			System.err.println("Error handling the configuration file: " + exception.getMessage());
 		}
 
 	}
 
-	private void createDefaultConfig(File var1, String var2) throws IOException {
-		var1.createNewFile();
-		FileWriter var3 = null;
+	private void createDefaultConfig(File file, String body) throws IOException {
+		file.createNewFile();
+		FileWriter writer = null;
 
 		try {
-			var3 = new FileWriter(var1);
-			var3.write(var2);
+			writer = new FileWriter(file);
+			writer.write(body);
 		} finally {
-			if(var3 != null) {
-				var3.close();
+			if(writer != null) {
+				writer.close();
 			}
 
 		}
 
 	}
 
-	public String getProperty(String var1) {
-		return this.properties.getProperty(var1);
+	public String getProperty(String property) {
+		return this.properties.getProperty(property, "0");
 	}
 }

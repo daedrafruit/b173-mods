@@ -66,9 +66,13 @@ public abstract class GuiContainer extends GuiScreen {
 		if(var13.getItemStack() == null && var6 != null && var6.getHasStack()) {
 			String var14 = "";
 
-			try {
+			if(Block.config.getProperty("CrashSlabFix").equals("1")) {
+				try {
+					var14 = ("" + StringTranslate.getInstance().translateNamedKey(var6.getStack().getItemName())).trim();
+				} catch (Exception var12) {
+				}
+			} else {
 				var14 = ("" + StringTranslate.getInstance().translateNamedKey(var6.getStack().getItemName())).trim();
-			} catch (Exception var12) {
 			}
 
 			if(var14.length() > 0) {

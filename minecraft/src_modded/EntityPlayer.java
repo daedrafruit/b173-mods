@@ -133,7 +133,7 @@ public abstract class EntityPlayer extends EntityLiving {
 	}
 
 	public void updateCloak() {
-		this.playerCloakUrl = ModRetrieveSkin.getCapeURL(this.username);
+		this.playerCloakUrl = Block.config.getProperty("SkinFix").equals("1") ? ModRetrieveSkin.getCapeURL(this.username) : "http://s3.amazonaws.com/MinecraftCloaks/" + this.username + ".png";
 		this.cloakUrl = this.playerCloakUrl;
 	}
 

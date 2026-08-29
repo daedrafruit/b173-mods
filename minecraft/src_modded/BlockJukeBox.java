@@ -1,8 +1,6 @@
 package net.minecraft.src;
 
 public class BlockJukeBox extends BlockContainer {
-	private static ModConfig config = new ModConfig("SoundConfig.txt", "# Fix bed sounds\n# 0 = Stone (vanilla)\n# 1 = Wood (modern vanilla)\n# 2 = Cloth\nBedSound=2\n\n# Fix jukebox and noteblock sounds\n# 0 = Stone (vanilla)\n# 1 = Wood\nJukeboxSound=1\nNoteblockSound=1\n\n");
-
 	protected BlockJukeBox(int var1, int var2) {
 		super(var1, var2, Material.wood);
 	}

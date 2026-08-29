@@ -3,7 +3,6 @@ package net.minecraft.src;
 import java.util.Random;
 
 public class BlockSand extends Block {
-	private ModConfig config = new ModConfig("FarLandFixConfig.txt", "# Far Land Fixes\n# Fix jitter at far coordinates\nFixFarJitter=1\n# Fix sand/gravel behaving strangely at far coordinates\nFixFarGravityBlocks=1\n");
 	public static boolean fallInstantly = false;
 
 	public BlockSand(int var1, int var2) {
