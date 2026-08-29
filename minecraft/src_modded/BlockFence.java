@@ -1,8 +1,6 @@
 package net.minecraft.src;
 
 public class BlockFence extends Block {
-	private ModConfig config = new ModConfig("FenceFixConfig.txt", "# Fix fences.\n# 0 = Disabled\n# 1 = Enabled\nFixFenceCollision=1\nPlaceFloatingFence=1\n");
-
 	public BlockFence(int var1, int var2) {
 		super(var1, var2, Material.wood);
 	}
@@ -14,8 +12,7 @@ public class BlockFence extends Block {
 	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {
 		if(this.config.getProperty("FixFenceCollision").equals("0")) {
 			return AxisAlignedBB.getBoundingBoxFromPool((double)x, (double)y, (double)z, (double)(x + 1), (double)((float)y + 1.5F), (double)(z + 1));
-		} 
-    else {
+		} else {
 			boolean isFenceMinusZ = this.isFenceAt(world, x, y, z - 1);
 			boolean isFencePlusZ = this.isFenceAt(world, x, y, z + 1);
 			boolean isFenceMinusX = this.isFenceAt(world, x - 1, y, z);
@@ -57,7 +54,7 @@ public class BlockFence extends Block {
 	}
 
 	public void setBlockBoundsBasedOnState(IBlockAccess block, int x, int y, int z) {
-    if(this.config.getProperty("FixFenceCollision").equals("1")) {
+		if(this.config.getProperty("FixFenceCollision").equals("1")) {
 			boolean isFenceMinusZ = this.isFenceAt(block, x, y, z - 1);
 			boolean isFencePlusZ = this.isFenceAt(block, x, y, z + 1);
 			boolean isFenceMinusX = this.isFenceAt(block, x - 1, y, z);
@@ -70,7 +67,7 @@ public class BlockFence extends Block {
 				var11 = 0.0F;
 			}
 
-			if(isFenceMinusX) {
+			if(isFencePlusZ) {
 				var12 = 1.0F;
 			}
 

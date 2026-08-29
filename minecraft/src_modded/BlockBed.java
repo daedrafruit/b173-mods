@@ -4,17 +4,17 @@ import java.util.Iterator;
 import java.util.Random;
 
 public class BlockBed extends Block {
-	private static ModConfig config = new ModConfig("SoundConfig.txt", "# Fix bed sounds\n# 0 = Stone (vanilla)\n# 1 = Wood (modern vanilla)\n# 2 = Cloth\nBedSound=2\n\n# Fix jukebox and noteblock sounds\n# 0 = Stone (vanilla)\n# 1 = Wood\nJukeboxSound=1\nNoteblockSound=1\n\n");
 	public static final int[][] headBlockToFootBlockMap = new int[][]{{0, 1}, {-1, 0}, {0, -1}, {1, 0}};
 
 	public BlockBed(int var1) {
 		super(var1, 134, Material.cloth);
 
-    //custom sounds
+		//custom sounds
 		this.setBounds();
 		if(config.getProperty("BedSound").equals("1")) {
 			this.setStepSound(soundWoodFootstep);
 		}
+
 		if(config.getProperty("BedSound").equals("2")) {
 			this.setStepSound(soundClothFootstep);
 		}
