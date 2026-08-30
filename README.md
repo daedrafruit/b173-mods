@@ -15,6 +15,17 @@ exit
 git restore .  
 ```  
 
+Debugging tips:  
+in Minecraft.java:  
+```java
+//press F4 to give item
+if(Keyboard.getEventKey() == Keyboard.KEY_F4) {
+    // item id, size, damage
+    ItemStack stack = new ItemStack(285, 1, 100);
+    this.thePlayer.inventorySlots.putStackInSlot(1, stack);
+}
+```
+
 BlockBackport  
 -uu Block  
 -ew ChunkCache  

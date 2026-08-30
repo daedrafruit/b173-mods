@@ -25,6 +25,13 @@ public class PlayerControllerSP extends PlayerController {
 		boolean var7 = super.sendBlockRemoved(var1, var2, var3, var4);
 		ItemStack var8 = this.mc.thePlayer.getCurrentEquippedItem();
 		boolean var9 = this.mc.thePlayer.canHarvestBlock(Block.blocksList[var5]);
+
+    //GoldSilkTouch Start
+    //harvest before destroying tool (fixes silk touch not functioning on last damage)
+		if(var7 && var9) {
+			Block.blocksList[var5].harvestBlock(this.mc.theWorld, this.mc.thePlayer, var1, var2, var3, var6);
+		}
+
 		if(var8 != null) {
 			var8.onDestroyBlock(var5, var1, var2, var3, this.mc.thePlayer);
 			if(var8.stackSize == 0) {
@@ -32,10 +39,8 @@ public class PlayerControllerSP extends PlayerController {
 				this.mc.thePlayer.destroyCurrentEquippedItem();
 			}
 		}
+    //GoldSilkTouch End
 
-		if(var7 && var9) {
-			Block.blocksList[var5].harvestBlock(this.mc.theWorld, this.mc.thePlayer, var1, var2, var3, var6);
-		}
 
 		return var7;
 	}
@@ -79,7 +84,9 @@ public class PlayerControllerSP extends PlayerController {
 				this.curBlockDamage = 0.0F;
 				this.prevBlockDamage = 0.0F;
 				this.field_1069_h = 0.0F;
+        //ClickFix Start
 				this.blockHitWait = Block.config.getProperty("ClickFix").equals("1") ? 0 : 5;
+        //ClickFix End
 			}
 		} else {
 			this.curBlockDamage = 0.0F;

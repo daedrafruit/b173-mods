@@ -247,7 +247,7 @@ public abstract class EntityPlayer extends EntityLiving {
 	}
 
 	public void dropCurrentItem() {
-		this.dropPlayerItemWithRandomChoice(this.inventory.decrStackSize(this.inventory.currentItem, 1), false);
+		this.dropPlayerItemWithRandomChoice(this.inventory.decrStackSize(this.inventory.currentItem, 2), false);
 	}
 
 	public void dropPlayerItem(ItemStack var1) {
