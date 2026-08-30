@@ -17,18 +17,19 @@ public class BlockIce extends BlockBreakable {
 		return super.shouldSideBeRendered(var1, var2, var3, var4, 1 - var5);
 	}
 
-	public void harvestBlock(World var1, EntityPlayer var2, int var3, int var4, int var5, int var6) {
-		super.harvestBlock(var1, var2, var3, var4, var5, var6);
-		ItemStack var8 = var2.getCurrentEquippedItem();
-		boolean var9 = var8 != null && var8.itemID == Item.pickaxeGold.shiftedIndex && Block.config.getProperty("GoldSilkTouch").equals("1");
-		if(!var9) {
-			Material var7 = var1.getBlockMaterial(var3, var4 - 1, var5);
-			if(var7.getIsSolid() || var7.getIsLiquid()) {
-				var1.setBlockWithNotify(var3, var4, var5, Block.waterMoving.blockID);
+  //GoldSilkTouch ModStart
+	public void harvestBlock(World world, EntityPlayer player, int x, int y, int z, int metadata) {
+		super.harvestBlock(world, player, x, y, z, metadata);
+		ItemStack equippedItem = player.getCurrentEquippedItem();
+		boolean isSilk = equippedItem != null && equippedItem.itemID == Item.pickaxeGold.shiftedIndex && Block.config.getProperty("GoldSilkTouch").equals("1");
+		if(!isSilk) {
+			Material blockBelow = world.getBlockMaterial(x, y - 1, z);
+			if(blockBelow.getIsSolid() || blockBelow.getIsLiquid()) {
+				world.setBlockWithNotify(x, y, z, Block.waterMoving.blockID);
 			}
 		}
-
 	}
+  //GoldSilkTouch ModEnd
 
 	public int quantityDropped(Random var1) {
 		return 0;

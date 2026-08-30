@@ -156,13 +156,14 @@ public class BlockLeaves extends BlockLeavesBase {
 		return Block.sapling.blockID;
 	}
 
-	public void dropBlockAsItemWithChance(World var1, int var2, int var3, int var4, int var5, float var6) {
-		super.dropBlockAsItemWithChance(var1, var2, var3, var4, var5, var6);
-		if(!var1.multiplayerWorld && (var5 & 3) == 0 && Block.config.getProperty("AppleDrop").equals("1") && var1.rand.nextInt(200) == 0) {
-			this.dropBlockAsItem_do(var1, var2, var3, var4, new ItemStack(Item.appleRed, 1, 0));
+  //AppleDrop ModStart
+	public void dropBlockAsItemWithChance(World world, int x, int y, int z, int metadata, float var6) {
+		super.dropBlockAsItemWithChance(world, x, y, z, metadata, var6);
+		if(!world.multiplayerWorld && (metadata & 3) == 0 && Block.config.getProperty("AppleDrop").equals("1") && world.rand.nextInt(200) == 0) {
+			this.dropBlockAsItem_do(world, x, y, z, new ItemStack(Item.appleRed, 1, 0));
 		}
-
 	}
+  //AppleDrop ModEnd
 
 	public void harvestBlock(World var1, EntityPlayer var2, int var3, int var4, int var5, int var6) {
 		if(!var1.multiplayerWorld && var2.getCurrentEquippedItem() != null && var2.getCurrentEquippedItem().itemID == Item.shears.shiftedIndex) {

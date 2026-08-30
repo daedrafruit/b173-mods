@@ -9,7 +9,7 @@ public class BlockBed extends Block {
 	public BlockBed(int var1) {
 		super(var1, 134, Material.cloth);
 
-		//custom sounds
+		//SoundFix ModStart
 		this.setBounds();
 		if(config.getProperty("BedSound").equals("1")) {
 			this.setStepSound(soundWoodFootstep);
@@ -18,6 +18,7 @@ public class BlockBed extends Block {
 		if(config.getProperty("BedSound").equals("2")) {
 			this.setStepSound(soundClothFootstep);
 		}
+		//SoundFix ModEnd
 
 	}
 

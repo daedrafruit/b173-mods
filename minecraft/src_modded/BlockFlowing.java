@@ -51,9 +51,12 @@ public class BlockFlowing extends BlockFluid {
 			if(this.numAdjacentSources >= 2 && this.blockMaterial == Material.water) {
 				if(var1.getBlockMaterial(var2, var3 - 1, var4).isSolid()) {
 					var10 = 0;
-				} else if(var1.getBlockMaterial(var2, var3 - 1, var4) == this.blockMaterial && (Block.config.getProperty("WhirlpoolFix").equals("1") ? this.getEffectiveFlowDecay(var1, var2, var3 - 1, var4) == 0 : var1.getBlockMetadata(var2, var3, var4) == 0)) {
+				} 
+        //WhirlpoolFix ModStart
+        else if(var1.getBlockMaterial(var2, var3 - 1, var4) == this.blockMaterial && (Block.config.getProperty("WhirlpoolFix").equals("1") ? this.getEffectiveFlowDecay(var1, var2, var3 - 1, var4) == 0 : var1.getBlockMetadata(var2, var3, var4) == 0)) {
 					var10 = 0;
 				}
+        //WhirlpoolFix ModEnd
 			}
 
 			if(this.blockMaterial == Material.lava && var6 < 8 && var10 < 8 && var10 > var6 && var5.nextInt(4) != 0) {

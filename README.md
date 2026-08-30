@@ -26,6 +26,18 @@ if(Keyboard.getEventKey() == Keyboard.KEY_F4) {
 }
 ```
 
+Keywords for comments:  
+GoldSilkTouch  
+SoundFix  
+BookshelfDropFix  
+FenceFix  
+WhirlpoolFix  
+ModConfig  
+BlockBackports  
+AppleDrop  
+
+
+
 BlockBackport  
 -uu Block  
 -ew ChunkCache  

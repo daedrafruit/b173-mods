@@ -11,13 +11,13 @@ public class BlockBookshelf extends Block {
 		return var1 <= 1 ? 4 : this.blockIndexInTexture;
 	}
 
-	//add block to drop
+	//BookshelfDropFix ModStart
 	public int idDropped(int var1, Random var2) {
 		return this.config.getProperty("FixBookshelvesDropNothing").equals("1") ? Item.book.shiftedIndex : Block.bookShelf.blockID;
 	}
 
-	//configure amount dropped
 	public int quantityDropped(Random var1) {
 		return this.config.getProperty("FixBookshelvesDropNothing").equals("1") ? 3 : (this.config.getProperty("FixBookshelvesDropNothing").equals("2") ? 1 : 0);
 	}
+	//BookshelfDropFix ModEnd
 }
