@@ -1,4 +1,4 @@
-```  
+```bash 
 git clone git@github.com:MCPHackers/RetroMCP-Java.git  
 cd RetroMCP-Java 
 ./gradlew build  
