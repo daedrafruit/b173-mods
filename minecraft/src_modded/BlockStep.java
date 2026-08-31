@@ -3,7 +3,9 @@ package net.minecraft.src;
 import java.util.Random;
 
 public class BlockStep extends Block {
+  //BlockBackports ModStart
 	public static final String[] field_22037_a = new String[]{"stone", "sand", "wood", "cobble", "brick"};
+  //BlockBackports ModEnd
 	private boolean blockType;
 
 	public BlockStep(int var1, boolean var2) {
@@ -16,9 +18,27 @@ public class BlockStep extends Block {
 		this.setLightOpacity(255);
 	}
 
-	public int getBlockTextureFromSideAndMetadata(int var1, int var2) {
-		return var2 == 4 ? 7 : (var2 == 0 ? (var1 <= 1 ? 6 : 5) : (var2 == 1 ? (var1 == 0 ? 208 : (var1 == 1 ? 176 : 192)) : (var2 == 2 ? 4 : (var2 == 3 ? 16 : 6))));
+  //BlockBackports ModStart
+	public int getBlockTextureFromSideAndMetadata(int var1, int metadata) {
+    switch (metadata) {
+      case 0:
+        return var1 <= 1 ? 6 : 5;
+      case 1:
+        if (var1 == 0) return 208;
+        if (var1 == 1) return 176;
+        return 192;
+      case 2:
+        return 4;
+      case 3:
+        return 16;
+      //brick case
+      case 4:
+        return 7;
+      default:
+        return 6;
+    }
 	}
+  //BlockBackports ModEnd
 
 	public int getBlockTextureFromSide(int var1) {
 		return this.getBlockTextureFromSideAndMetadata(var1, 0);

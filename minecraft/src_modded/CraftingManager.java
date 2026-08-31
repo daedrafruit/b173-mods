@@ -82,6 +82,8 @@ public class CraftingManager {
 		this.addRecipe(new ItemStack(Block.pistonBase, 1), new Object[]{"TTT", "#X#", "#R#", Character.valueOf('#'), Block.cobblestone, Character.valueOf('X'), Item.ingotIron, Character.valueOf('R'), Item.redstone, Character.valueOf('T'), Block.planks});
 		this.addRecipe(new ItemStack(Block.pistonStickyBase, 1), new Object[]{"S", "P", Character.valueOf('S'), Item.slimeBall, Character.valueOf('P'), Block.pistonBase});
 		this.addRecipe(new ItemStack(Item.bed, 1), new Object[]{"###", "XXX", Character.valueOf('#'), Block.cloth, Character.valueOf('X'), Block.planks});
+
+    //BlockBackports ModStart
 		if(Block.config.getProperty("FenceGate").equals("1")) {
 			this.addRecipe(new ItemStack(Block.fenceGate, 1), new Object[]{"#W#", "#W#", Character.valueOf('#'), Item.stick, Character.valueOf('W'), Block.planks});
 		}
@@ -125,6 +127,7 @@ public class CraftingManager {
 		if(Block.config.getProperty("CobwebRecipe").equals("1")) {
 			this.addRecipe(new ItemStack(Block.web, 1), new Object[]{"###", "#S#", "###", Character.valueOf('#'), Item.silk, Character.valueOf('S'), Item.slimeBall});
 		}
+    //BlockBackports ModEnd
 
 		Collections.sort(this.recipes, new RecipeSorter(this));
 		System.out.println(this.recipes.size() + " recipes");

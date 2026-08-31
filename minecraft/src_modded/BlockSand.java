@@ -21,25 +21,27 @@ public class BlockSand extends Block {
 		this.tryToFall(var1, var2, var3, var4);
 	}
 
-	private void tryToFall(World var1, int var2, int var3, int var4) {
-		if(canFallBelow(var1, var2, var3 - 1, var4) && var3 >= 0) {
+	private void tryToFall(World world, int x, int y, int z) {
+		if(canFallBelow(world, x, y - 1, z) && y >= 0) {
 			byte var5 = 32;
-			if(!fallInstantly && var1.checkChunksExist(var2 - var5, var3 - var5, var4 - var5, var2 + var5, var3 + var5, var4 + var5)) {
-				EntityFallingSand var6 = new EntityFallingSand(var1, (double)((float)var2 + 0.5F), (double)((float)var3 + 0.5F), (double)((float)var4 + 0.5F), this.blockID);
+			if(!fallInstantly && world.checkChunksExist(x - var5, y - var5, z - var5, x + var5, y + var5, z + var5)) {
+				EntityFallingSand sandEntity = new EntityFallingSand(world, (double)((float)x + 0.5F), (double)((float)y + 0.5F), (double)((float)z + 0.5F), this.blockID);
+        //FarLandsFix ModStart
 				if(this.config.getProperty("FixFarGravityBlocks").equals("1")) {
-					var6 = new EntityFallingSand(var1, (double)var2 + 0.5D, (double)var3 + 0.5D, (double)var4 + 0.5D, this.blockID);
+					sandEntity = new EntityFallingSand(world, (double)x + 0.5D, (double)y + 0.5D, (double)z + 0.5D, this.blockID);
 				}
+        //FarLandsFix ModEnd
 
-				var1.entityJoinedWorld(var6);
+				world.entityJoinedWorld(sandEntity);
 			} else {
-				var1.setBlockWithNotify(var2, var3, var4, 0);
+				world.setBlockWithNotify(x, y, z, 0);
 
-				while(canFallBelow(var1, var2, var3 - 1, var4) && var3 > 0) {
-					--var3;
+				while(canFallBelow(world, x, y - 1, z) && y > 0) {
+					--y;
 				}
 
-				if(var3 > 0) {
-					var1.setBlockWithNotify(var2, var3, var4, this.blockID);
+				if(y > 0) {
+					world.setBlockWithNotify(x, y, z, this.blockID);
 				}
 			}
 		}

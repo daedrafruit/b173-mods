@@ -68,7 +68,9 @@ public class ChunkCache implements IBlockAccess {
 			int var6;
 			if(var4) {
 				var5 = this.getBlockId(var1, var2, var3);
+        //BlockBackports ModStart
 				if(var5 == Block.stairSingle.blockID || var5 == Block.tilledField.blockID || var5 == Block.stairCompactCobblestone.blockID || var5 == Block.stairCompactPlanks.blockID || var5 == Block.stairCompactBrick.blockID || var5 == Block.stairCompactSandstone.blockID) {
+        //BlockBackports ModEnd
 					var6 = this.getLightValueExt(var1, var2 + 1, var3, false);
 					int var7 = this.getLightValueExt(var1 + 1, var2, var3, false);
 					int var8 = this.getLightValueExt(var1 - 1, var2, var3, false);

@@ -13,9 +13,11 @@ public class BlockTallGrass extends BlockFlower {
 		return var2 == 1 ? this.blockIndexInTexture : (var2 == 2 ? this.blockIndexInTexture + 16 + 1 : (var2 == 0 ? this.blockIndexInTexture + 16 : this.blockIndexInTexture));
 	}
 
+  //GoldSilkTouch ModStart
 	public int getRenderColor(int var1) {
 		return ColorizerGrass.getGrassColor(0.5D, 1.0D);
 	}
+  //GoldSilkTouch ModEnd
 
 	public int colorMultiplier(IBlockAccess var1, int var2, int var3, int var4) {
 		int var5 = var1.getBlockMetadata(var2, var3, var4);

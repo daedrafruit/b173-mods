@@ -79,9 +79,11 @@ public class EntityCreeper extends EntityMob {
 	public void onDeath(Entity var1) {
 		super.onDeath(var1);
 		if(var1 instanceof EntitySkeleton) {
-			String var2 = Block.config.getProperty("ModernDiscs");
-			int var3 = var2.equals("2") ? 16 : (var2.equals("1") ? 12 : 2);
-			this.dropItem(Item.record13.shiftedIndex + this.rand.nextInt(var3), 1);
+      //ModernDiscs ModStart
+			String modernOn = Block.config.getProperty("ModernDiscs");
+			int maxDisc = modernOn.equals("2") ? 16 : (modernOn.equals("1") ? 12 : 2);
+			this.dropItem(Item.record13.shiftedIndex + this.rand.nextInt(maxDisc), 1);
+      //ModernDiscs ModEnd
 		}
 
 	}

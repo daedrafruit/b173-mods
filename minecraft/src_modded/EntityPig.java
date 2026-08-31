@@ -46,13 +46,14 @@ public class EntityPig extends EntityAnimal {
 		return this.fire > 0 ? Item.porkCooked.shiftedIndex : Item.porkRaw.shiftedIndex;
 	}
 
+  //SaddleDrop ModStart
 	public void onDeath(Entity var1) {
 		super.onDeath(var1);
 		if(this.getSaddled() && Block.config.getProperty("SaddleDrop").equals("1")) {
 			this.dropItem(Item.saddle.shiftedIndex, 1);
 		}
-
 	}
+  //SaddleDrop ModEnd
 
 	public boolean getSaddled() {
 		return (this.dataWatcher.getWatchableObjectByte(16) & 1) != 0;
