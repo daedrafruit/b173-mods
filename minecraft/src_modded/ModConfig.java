@@ -1,3 +1,4 @@
+//ModConfig ModStart
 package net.minecraft.src;
 
 import java.io.File;
@@ -47,3 +48,4 @@ public class ModConfig {
 		return this.properties.getProperty(property, "0");
 	}
 }
+//ModConfig ModEnd

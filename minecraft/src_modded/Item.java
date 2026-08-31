@@ -115,8 +115,20 @@ public class Item {
 	public static Item cookie;
 	public static ItemMap mapItem;
 	public static ItemShears shears;
+
 	public static Item record13;
 	public static Item recordCat;
+ 
+	public final int shiftedIndex;
+	protected int maxStackSize = 64;
+	private int maxDamage = 0;
+	protected int iconIndex;
+	protected boolean bFull3D = false;
+	protected boolean hasSubtypes = false;
+	private Item containerItem = null;
+	private String itemName;
+
+  //ModernDiscs ModStart
 	public static Item recordBlocks;
 	public static Item recordChirp;
 	public static Item recordFar;
@@ -131,14 +143,6 @@ public class Item {
 	public static Item recordOtherside;
 	public static Item recordFive;
 	public static Item recordRelic;
-	public final int shiftedIndex;
-	protected int maxStackSize = 64;
-	private int maxDamage = 0;
-	protected int iconIndex;
-	protected boolean bFull3D = false;
-	protected boolean hasSubtypes = false;
-	private Item containerItem = null;
-	private String itemName;
 
 	public static void ExportResource(String var0, String var1) throws Exception {
 		InputStream var2 = null;
@@ -165,6 +169,7 @@ public class Item {
 		}
 
 	}
+  //ModernDiscs ModEnd
 
 	protected Item(int var1) {
 		this.shiftedIndex = 256 + var1;
@@ -317,6 +322,7 @@ public class Item {
 	}
 
 	static {
+    //ModernDiscs ModStart
 		try {
 			ExportResource("streaming/Pigstep.ogg", "resources/streaming/Pigstep.ogg");
 			ExportResource("streaming/otherside.ogg", "resources/streaming/otherside.ogg");
@@ -325,6 +331,7 @@ public class Item {
 		} catch (Exception var1) {
 			var1.printStackTrace();
 		}
+    //ModernDiscs ModEnd
 
 		itemRand = new Random();
 		itemsList = new Item[32000];
@@ -432,8 +439,11 @@ public class Item {
 		cookie = (new ItemCookie(101, 1, false, 8)).setIconCoord(12, 5).setItemName("cookie");
 		mapItem = (ItemMap)(new ItemMap(102)).setIconCoord(12, 3).setItemName("map");
 		shears = (ItemShears)(new ItemShears(103)).setIconCoord(13, 5).setItemName("shears");
+
 		record13 = (new ItemRecord(2000, "13")).setIconCoord(0, 15).setItemName("record");
 		recordCat = (new ItemRecord(2001, "cat")).setIconCoord(1, 15).setItemName("record");
+
+    //ModernDiscs ModStart
 		recordBlocks = (new ItemRecord(2002, "blocks")).setIconCoord(2, 15).setItemName("record");
 		recordChirp = (new ItemRecord(2003, "chirp")).setIconCoord(3, 15).setItemName("record");
 		recordFar = (new ItemRecord(2004, "far")).setIconCoord(4, 15).setItemName("record");
@@ -448,6 +458,8 @@ public class Item {
 		recordOtherside = (new ItemRecord(2013, "otherside")).setIconCoord(13, 15).setItemName("record");
 		recordFive = (new ItemRecord(2014, "Five")).setIconCoord(14, 15).setItemName("record");
 		recordRelic = (new ItemRecord(2015, "Relic")).setIconCoord(15, 15).setItemName("record");
+    //ModernDiscs ModEnd
+
 		StatList.func_25151_b();
 	}
 }

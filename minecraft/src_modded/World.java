@@ -539,7 +539,9 @@ public class World implements IBlockAccess {
 		if(var1 >= -32000000 && var3 >= -32000000 && var1 < 32000000 && var3 <= 32000000) {
 			if(var4) {
 				int var5 = this.getBlockId(var1, var2, var3);
+        //BlockBackports ModStart
 				if(var5 == Block.stairSingle.blockID || var5 == Block.tilledField.blockID || var5 == Block.stairCompactCobblestone.blockID || var5 == Block.stairCompactPlanks.blockID || var5 == Block.stairCompactBrick.blockID || var5 == Block.stairCompactSandstone.blockID) {
+        //BlockBackports ModEnd
 					int var6 = this.getBlockLightValue_do(var1, var2 + 1, var3, false);
 					int var7 = this.getBlockLightValue_do(var1 + 1, var2, var3, false);
 					int var8 = this.getBlockLightValue_do(var1 - 1, var2, var3, false);
@@ -1561,10 +1563,12 @@ public class World implements IBlockAccess {
 
 		if(this.getBlockId(var2, var3, var4) == Block.fire.blockID) {
 			this.func_28107_a(var1, 1004, var2, var3, var4, 0);
-			ItemStack var6 = var1.getCurrentEquippedItem();
-			if(var6 != null && var6.itemID == Item.swordGold.shiftedIndex && this.getBlockId(var2, var3 - 1, var4) == Block.netherrack.blockID && Block.config.getProperty("GoldSwordFireHarvest").equals("1")) {
+      //GoldSwordFireHarvest ModStart
+			ItemStack equippedItem = var1.getCurrentEquippedItem();
+			if(equippedItem != null && equippedItem.itemID == Item.swordGold.shiftedIndex && this.getBlockId(var2, var3 - 1, var4) == Block.netherrack.blockID && Block.config.getProperty("GoldSwordFireHarvest").equals("1")) {
 				Block.fire.dropBlockAsItem_do(this, var2, var3, var4, new ItemStack(Block.fire.blockID, 1, this.getBlockMetadata(var2, var3, var4)));
 			}
+      //GoldSwordFireHarvest ModEnd
 
 			this.setBlockWithNotify(var2, var3, var4, 0);
 		}

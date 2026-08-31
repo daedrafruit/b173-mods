@@ -1,3 +1,4 @@
+//GoldSilkTouch ModStart
 package net.minecraft.src;
 
 public class ItemTallGrass extends ItemBlock {
@@ -22,3 +23,4 @@ public class ItemTallGrass extends ItemBlock {
 		return var1.getItemDamage() == 2 ? super.getItemName() + ".fern" : super.getItemName() + ".grass";
 	}
 }
+//GoldSilkTouch ModEnd

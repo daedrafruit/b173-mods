@@ -46,7 +46,9 @@ public class RenderItem extends Render {
 				var28 = 0.5F;
 			}
 
+      //BigDroppedItemsFix ModStart
 			if(Block.config.getProperty("BigDroppedItemsFix").equals("1") && var10 != null && (var10.itemID == Block.cactus.blockID || var10.itemID == Block.pressurePlatePlanks.blockID || var10.itemID == Block.pressurePlateStone.blockID || var10.itemID == Block.cake.blockID || var10.itemID == Block.button.blockID || var10.itemID == Block.trapdoor.blockID || var10.itemID == Block.snow.blockID || var10.itemID == Block.fence.blockID || var10.itemID == Block.stairCompactCobblestone.blockID || var10.itemID == Block.stairCompactPlanks.blockID || var10.itemID == Block.stairCompactBrick.blockID || var10.itemID == Block.stairCompactSandstone.blockID || var10.itemID == Block.fenceGate.blockID || var10.itemID == Block.buttonWood.blockID || var10.itemID == Block.trapdoorIron.blockID)) {
+      //BigDroppedItemsFix ModEnd
 				var28 = 0.25F;
 			}
 

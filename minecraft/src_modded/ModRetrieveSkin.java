@@ -1,3 +1,4 @@
+//SkinFix ModStart
 package net.minecraft.src;
 
 import java.io.BufferedReader;
@@ -8,99 +9,95 @@ import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 
 public class ModRetrieveSkin {
-	public static String getSkinURL(String var0) {
-		String var1 = accessAPI("https://api.mojang.com/users/profiles/minecraft/", var0, "id");
-		String var2 = getTextureResponse(var1);
-		return extractURL(var2, "SKIN");
+
+	public static String getSkinURL(String username) {
+		String uuid = accessAPI("https://api.mojang.com/users/profiles/minecraft/", username, "id");
+		String texturePayload = getTextureResponse(uuid);
+		return extractURL(texturePayload, "SKIN");
 	}
 
-	public static String getCapeURL(String var0) {
-		String var1 = accessAPI("https://api.mojang.com/users/profiles/minecraft/", var0, "id");
-		String var2 = getTextureResponse(var1);
-		return extractURL(var2, "CAPE");
+	public static String getCapeURL(String username) {
+		String uuid = accessAPI("https://api.mojang.com/users/profiles/minecraft/", username, "id");
+		String texturePayload = getTextureResponse(uuid);
+		return extractURL(texturePayload, "CAPE");
 	}
 
-	public static String getTextureResponse(String var0) {
-		String var1 = accessAPI("https://sessionserver.mojang.com/session/minecraft/profile/", var0, "value");
-		byte[] var2 = Base64.getDecoder().decode(var1);
-		String var3 = new String(var2, StandardCharsets.UTF_8);
-		return var3;
+	public static String getTextureResponse(String uuid) {
+		String base64Value = accessAPI("https://sessionserver.mojang.com/session/minecraft/profile/", uuid, "value");
+		byte[] decodedBytes = Base64.getDecoder().decode(base64Value);
+		String decodedJson = new String(decodedBytes, StandardCharsets.UTF_8);
+		return decodedJson;
 	}
 
-	public static String getUUID(String var0) {
-		String var1 = accessAPI("https://api.mojang.com/users/profiles/minecraft/", var0, "id");
-		return var1;
+	public static String getUUID(String username) {
+		String uuid = accessAPI("https://api.mojang.com/users/profiles/minecraft/", username, "id");
+		return uuid;
 	}
 
-	public static String accessAPI(String var0, String var1, String var2) {
-		String var3 = "";
-
+	public static String accessAPI(String baseUrl, String pathParam, String jsonKey) {
+		String responseBody = "";
 		try {
-			URL var4 = new URL(var0 + var1);
-			HttpURLConnection var5 = (HttpURLConnection)var4.openConnection();
-			var5.setRequestMethod("GET");
-			BufferedReader var6 = new BufferedReader(new InputStreamReader(var5.getInputStream()));
-			StringBuilder var8 = new StringBuilder();
-
-			while(true) {
-				String var7 = var6.readLine();
-				if(var7 == null) {
-					var6.close();
-					var3 = var8.toString();
-					var5.disconnect();
+			URL url = new URL(baseUrl + pathParam);
+			HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+			connection.setRequestMethod("GET");
+			BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+			StringBuilder responseBuilder = new StringBuilder();
+			while (true) {
+				String line = reader.readLine();
+				if (line == null) {
+					reader.close();
+					responseBody = responseBuilder.toString();
+					connection.disconnect();
 					break;
 				}
-
-				var8.append(var7);
+				responseBuilder.append(line);
 			}
-		} catch (Exception var9) {
-			var9.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
-
-		return extractValue(var3, var2);
+		return extractValue(responseBody, jsonKey);
 	}
 
-	public static String extractValue(String var0, String var1) {
-		String var2 = var0.replaceAll("\\{", "").replaceAll("\\}", "").replaceAll("\\s", "").replaceAll("\\]", "");
-		String[] var3 = var2.split(",");
-		String[] var4 = var3;
-		int var5 = var3.length;
-
-		for(int var6 = 0; var6 < var5; ++var6) {
-			String var7 = var4[var6];
-			String[] var8 = var7.split(":");
-			if(var8.length == 2) {
-				String var9 = var8[0].replaceAll("\"", "").trim();
-				String var10 = var8[1].replaceAll("\"", "").trim();
-				if(var1.equals(var9)) {
-					return var10;
+	public static String extractValue(String json, String targetKey) {
+		String cleanedJson = json.replaceAll("\\{", "").replaceAll("\\}", "").replaceAll("\\s", "").replaceAll("\\]", "");
+		String[] pairs = cleanedJson.split(",");
+		String[] pairsCopy = pairs;
+		int pairCount = pairs.length;
+		for (int i = 0; i < pairCount; ++i) {
+			String pair = pairsCopy[i];
+			String[] keyValue = pair.split(":");
+			if (keyValue.length == 2) {
+				String key = keyValue[0].replaceAll("\"", "").trim();
+				String value = keyValue[1].replaceAll("\"", "").trim();
+				if (targetKey.equals(key)) {
+					return value;
 				}
 			}
 		}
-
 		return null;
 	}
 
-	private static String extractURL(String var0, String var1) {
-		int var2 = var0.indexOf("\"textures\"");
-		if(var2 == -1) {
+	private static String extractURL(String decodedJson, String textureType) {
+		int texturesIndex = decodedJson.indexOf("\"textures\"");
+		if (texturesIndex == -1) {
 			return null;
 		} else {
-			int var3 = var0.indexOf("\"" + var1 + "\"", var2);
-			if(var3 == -1) {
+			int typeIndex = decodedJson.indexOf("\"" + textureType + "\"", texturesIndex);
+			if (typeIndex == -1) {
 				return null;
 			} else {
-				int var4 = var0.indexOf("\"url\" : \"", var3);
-				if(var4 == -1) {
+				int urlKeyIndex = decodedJson.indexOf("\"url\" : \"", typeIndex);
+				if (urlKeyIndex == -1) {
 					return null;
 				} else {
-					int var5 = var4 + "\"url\" : \"".length();
-					int var6 = var0.indexOf("\"", var5);
-					String var7 = var0.substring(var5, var6);
-					String var8 = var7.replace("http://", "https://");
-					return var8;
+					int urlStart = urlKeyIndex + "\"url\" : \"".length();
+					int urlEnd = decodedJson.indexOf("\"", urlStart);
+					String url = decodedJson.substring(urlStart, urlEnd);
+					String httpsUrl = url.replace("http://", "https://");
+					return httpsUrl;
 				}
 			}
 		}
 	}
 }
+//SkinFix ModEnd

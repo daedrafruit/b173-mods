@@ -66,6 +66,7 @@ public abstract class GuiContainer extends GuiScreen {
 		if(var13.getItemStack() == null && var6 != null && var6.getHasStack()) {
 			String var14 = "";
 
+      //CrashSlabFix ModStart
 			if(Block.config.getProperty("CrashSlabFix").equals("1")) {
 				try {
 					var14 = ("" + StringTranslate.getInstance().translateNamedKey(var6.getStack().getItemName())).trim();
@@ -74,6 +75,7 @@ public abstract class GuiContainer extends GuiScreen {
 			} else {
 				var14 = ("" + StringTranslate.getInstance().translateNamedKey(var6.getStack().getItemName())).trim();
 			}
+      //CrashSlabFix ModEnd
 
 			if(var14.length() > 0) {
 				var7 = var1 - var4 + 12;

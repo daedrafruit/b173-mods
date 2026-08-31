@@ -8,7 +8,9 @@ public class ItemShears extends Item {
 	}
 
 	public boolean onBlockDestroyed(ItemStack var1, int var2, int var3, int var4, int var5, EntityLiving var6) {
+    //ToolFix ModStart
 		if(var2 == Block.leaves.blockID || var2 == Block.web.blockID || var2 == Block.tallGrass.blockID || var2 == Block.deadBush.blockID || var2 == Block.cloth.blockID) {
+    //ToolFix ModEnd
 			var1.damageItem(1, var6);
 		}
 

@@ -92,9 +92,33 @@ public class RenderBlocks {
 	public boolean renderBlockByRenderType(Block var1, int var2, int var3, int var4) {
 		int var5 = var1.getRenderType();
 		var1.setBlockBoundsBasedOnState(this.blockAccess, var2, var3, var4);
-		return var5 == 0 ? this.renderStandardBlock(var1, var2, var3, var4) : (var5 == 4 ? this.renderBlockFluids(var1, var2, var3, var4) : (var5 == 13 ? this.renderBlockCactus(var1, var2, var3, var4) : (var5 == 1 ? this.renderBlockReed(var1, var2, var3, var4) : (var5 == 6 ? this.renderBlockCrops(var1, var2, var3, var4) : (var5 == 2 ? this.renderBlockTorch(var1, var2, var3, var4) : (var5 == 3 ? this.renderBlockFire(var1, var2, var3, var4) : (var5 == 5 ? this.renderBlockRedstoneWire(var1, var2, var3, var4) : (var5 == 8 ? this.renderBlockLadder(var1, var2, var3, var4) : (var5 == 7 ? this.renderBlockDoor(var1, var2, var3, var4) : (var5 == 9 ? this.renderBlockMinecartTrack((BlockRail)var1, var2, var3, var4) : (var5 == 10 ? this.renderBlockStairs(var1, var2, var3, var4) : (var5 == 11 ? this.renderBlockFence(var1, var2, var3, var4) : (var5 == 12 ? this.renderBlockLever(var1, var2, var3, var4) : (var5 == 14 ? this.renderBlockBed(var1, var2, var3, var4) : (var5 == 15 ? this.renderBlockRepeater(var1, var2, var3, var4) : (var5 == 16 ? this.func_31074_b(var1, var2, var3, var4, false) : (var5 == 17 ? this.func_31080_c(var1, var2, var3, var4, true) : (var5 == 21 ? this.renderBlockFenceGate(var1, var2, var3, var4) : false))))))))))))))))));
+    switch (var5) {
+      case 0:  return this.renderStandardBlock(var1, var2, var3, var4);
+      case 1:  return this.renderBlockReed(var1, var2, var3, var4);
+      case 2:  return this.renderBlockTorch(var1, var2, var3, var4);
+      case 3:  return this.renderBlockFire(var1, var2, var3, var4);
+      case 4:  return this.renderBlockFluids(var1, var2, var3, var4);
+      case 5:  return this.renderBlockRedstoneWire(var1, var2, var3, var4);
+      case 6:  return this.renderBlockCrops(var1, var2, var3, var4);
+      case 7:  return this.renderBlockDoor(var1, var2, var3, var4);
+      case 8:  return this.renderBlockLadder(var1, var2, var3, var4);
+      case 9:  return this.renderBlockMinecartTrack((BlockRail) var1, var2, var3, var4);
+      case 10: return this.renderBlockStairs(var1, var2, var3, var4);
+      case 11: return this.renderBlockFence(var1, var2, var3, var4);
+      case 12: return this.renderBlockLever(var1, var2, var3, var4);
+      case 13: return this.renderBlockCactus(var1, var2, var3, var4);
+      case 14: return this.renderBlockBed(var1, var2, var3, var4);
+      case 15: return this.renderBlockRepeater(var1, var2, var3, var4);
+      case 16: return this.func_31074_b(var1, var2, var3, var4, false);
+      case 17: return this.func_31080_c(var1, var2, var3, var4, true);
+      //BlockBackPorts ModStart
+      case 21: return this.renderBlockFenceGate(var1, var2, var3, var4);
+      //BlockBackPorts ModEnd
+      default: return false;
+    }
 	}
 
+  //BlockBackPorts ModStart
 	public boolean renderBlockFenceGate(Block var1, int var2, int var3, int var4) {
 		boolean var5 = true;
 		int var6 = this.blockAccess.getBlockMetadata(var2, var3, var4);
@@ -233,6 +257,7 @@ public class RenderBlocks {
 		var1.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
 		return var5;
 	}
+  //BlockBackPorts ModEnd
 
 	public boolean renderBlockFence(Block var1, int var2, int var3, int var4) {
 		boolean var5 = false;
