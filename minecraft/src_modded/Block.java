@@ -6,7 +6,72 @@ import java.util.Random;
 public class Block {
 
   //ModConfig ModStart
-	public static ModConfig config = new ModConfig("parker_mod.ini", "FixFarJitter=1\nFixFarGravityBlocks=1\nBrickStairs=1\nSandstoneStairs=1\nBrickSlab=1\nFenceGate=1\nWoodButton=1\nIronTrapdoor=1\nFloatingIronTrapdoor=1\nToolFix=1\nBigDroppedItemsFix=1\n# ModernWoodButtonRecipe: 0 = 2 Logs (custom, keeps wood buttons priced relative to stone buttons), 1 = 1 Plank (modern vanilla)\nModernWoodButtonRecipe=0\n# ModernStoneButtonRecipe: 0 = 2 Stone, 1 = 1 Stone (modern vanilla)\nModernStoneButtonRecipe=0\nLeatherBookRecipe=1\n# FixBookshelvesDropNothing: 0 = Nothing (vanilla), 1 = x3 Books (modern vanilla), 2 = x1 Bookshelf\nFixBookshelvesDropNothing=1\n# BedSound: 0 = Stone (vanilla), 1 = Wood (modern vanilla), 2 = Cloth\nBedSound=2\nJukeboxSound=1\nNoteblockSound=1\nFixFenceCollision=1\nPlaceFloatingFence=1\nPlacePressurePlateOnFence=1\n# ModernDiscs: 0 = Vanilla (13, cat), 1 = Classic discs (adds blocks/chirp/far/mall/mellohi/stal/strad/ward/11/wait), 2 = All discs including modern (adds Pigstep/otherside/Five/Relic)\nModernDiscs=1\nGoldSilkTouch=1\nClickFix=1\nFloatingTrapDoor=1\nCrashSlabFix=1\nSkinFix=1\nWhirlpoolFix=1\nStairDropFix=1\n# CobwebRecipe: 8 string surrounding a slime ball\nCobwebRecipe=1\nSaddleDrop=1\nAppleDrop=1\n# GoldenAppleRecipe: Recipe exists in base game, disable to maintain golden apple rarity\nGoldenAppleRecipe=1\n# GoldSwordFireHarvest: gold sword can pick up fire burning over netherrack as an item, also enables the vanilla chainmail recipe which uses fire as an ingredient\nGoldSwordFireHarvest=1\n# SpongeRecipe: yellow wool in center, slime ball on 4 sides\nSpongeRecipe=1\n");
+	public static ModConfig config = new ModConfig("parker_mod.ini",
+		"# BlockBackports\n" +
+		"BrickStairs=1\n" +
+		"SandstoneStairs=1\n" +
+		"BrickSlab=1\n" +
+		"FenceGate=1\n" +
+		"WoodButton=1\n" +
+		"IronTrapdoor=1\n" +
+		"FloatingIronTrapdoor=1\n" +
+		"# ModernWoodButtonRecipe: 0 = 2 Logs (custom, keeps wood buttons priced relative to stone buttons), 1 = 1 Plank (modern vanilla)\n" +
+		"ModernWoodButtonRecipe=0\n" +
+		"# ModernStoneButtonRecipe: 0 = 2 Stone, 1 = 1 Stone (modern vanilla)\n" +
+		"ModernStoneButtonRecipe=0\n" +
+		"# CobwebRecipe: 8 string surrounding a slime ball\n" +
+		"CobwebRecipe=1\n" +
+		"AppleDrop=1\n" +
+		"# GoldenAppleRecipe: Recipe exists in base game, disable to maintain golden apple rarity\n" +
+		"GoldenAppleRecipe=0\n" +
+		"\n" +
+		"ToolFix=1\n" +
+		"\n" +
+		"# FixBookshelvesDropNothing: 0 = Nothing (vanilla), 1 = x3 Books (modern vanilla), 2 = x1 Bookshelf\n" +
+		"FixBookshelvesDropNothing=1\n" +
+		"\n" +
+		"ClickFix=1\n" +
+		"\n" +
+		"BigDroppedItemsFix=1\n" +
+		"\n" +
+		"FixFenceCollision=1\n" +
+		"PlaceFloatingFence=1\n" +
+		"\n" +
+		"PlacePressurePlateOnFence=1\n" +
+		"\n" +
+		"LeatherBookRecipe=1\n" +
+		"\n" +
+		"FixFarJitter=1\n" +
+		"FixFarGravityBlocks=1\n" +
+		"\n" +
+		"# BedSound: 0 = Stone (vanilla), 1 = Wood (modern vanilla), 2 = Cloth\n" +
+		"BedSound=2\n" +
+		"JukeboxSound=1\n" +
+		"NoteblockSound=1\n" +
+		"\n" +
+		"SkinFix=1\n" +
+		"\n" +
+		"# FloatingTrapDoor: the wooden trapdoor (see FloatingIronTrapdoor above for the iron one)\n" +
+		"FloatingTrapDoor=1\n" +
+		"\n" +
+		"CrashSlabFix=1\n" +
+		"\n" +
+		"# ModernDiscs: 0 = Vanilla (13, cat), 1 = Classic discs (adds blocks/chirp/far/mall/mellohi/stal/strad/ward/11/wait), 2 = All discs including modern (adds Pigstep/otherside/Five/Relic)\n" +
+		"ModernDiscs=1\n" +
+		"\n" +
+		"WhirlpoolFix=1\n" +
+		"\n" +
+		"GoldSilkTouch=1\n" +
+		"\n" +
+		"StairDropFix=1\n" +
+		"\n" +
+		"SaddleDrop=1\n" +
+		"\n" +
+		"# SpongeRecipe: yellow wool in center, slime ball on 4 sides\n" +
+		"SpongeRecipe=1\n" +
+		"\n" +
+		"# GoldSwordFireHarvest: gold sword can pick up fire burning over netherrack as an item, also enables the vanilla chainmail recipe which uses fire as an ingredient\n" +
+		"GoldSwordFireHarvest=1\n");
   //ModConfig ModEnd
 
 	public static final StepSound soundPowderFootstep = new StepSound("stone", 1.0F, 1.0F);

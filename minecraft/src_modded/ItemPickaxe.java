@@ -1,9 +1,7 @@
 package net.minecraft.src;
 
 public class ItemPickaxe extends ItemTool {
-  //ToolFix ModStart
-	private static Block[] blocksEffectiveAgainst = new Block[]{Block.cobblestone, Block.stairDouble, Block.stairSingle, Block.stone, Block.sandStone, Block.cobblestoneMossy, Block.oreIron, Block.blockSteel, Block.oreCoal, Block.blockGold, Block.oreGold, Block.oreDiamond, Block.blockDiamond, Block.ice, Block.netherrack, Block.oreLapis, Block.blockLapis, Block.oreRedstone, Block.oreRedstoneGlowing, Block.stairCompactCobblestone, Block.doorSteel, Block.brick, Block.stoneOvenIdle, Block.stoneOvenActive, Block.dispenser, Block.pressurePlateStone, Block.rail, Block.railPowered, Block.railDetector, Block.button};
-  //ToolFix ModEnd
+	private static Block[] blocksEffectiveAgainst = new Block[]{Block.cobblestone, Block.stairDouble, Block.stairSingle, Block.stone, Block.sandStone, Block.cobblestoneMossy, Block.oreIron, Block.blockSteel, Block.oreCoal, Block.blockGold, Block.oreGold, Block.oreDiamond, Block.blockDiamond, Block.ice, Block.netherrack, Block.oreLapis, Block.blockLapis};
 
 	protected ItemPickaxe(int var1, EnumToolMaterial var2) {
 		super(var1, 2, var2, blocksEffectiveAgainst);
@@ -17,4 +15,20 @@ public class ItemPickaxe extends ItemTool {
 
 		return block == Block.obsidian ? harvestLevel == 3 : (block != Block.blockDiamond && block != Block.oreDiamond ? (block != Block.blockGold && block != Block.oreGold ? (block != Block.blockSteel && block != Block.oreIron ? (block != Block.blockLapis && block != Block.oreLapis ? (block != Block.oreRedstone && block != Block.oreRedstoneGlowing ? (block.blockMaterial == Material.rock ? true : block.blockMaterial == Material.iron) : harvestLevel >= 2) : harvestLevel >= 1) : harvestLevel >= 1) : harvestLevel >= 2) : harvestLevel >= 2);
 	}
+
+	//ToolFix ModStart
+	private static Block[] toolFixBlocks = new Block[]{Block.oreRedstone, Block.oreRedstoneGlowing, Block.stairCompactCobblestone, Block.doorSteel, Block.brick, Block.stoneOvenIdle, Block.stoneOvenActive, Block.dispenser, Block.pressurePlateStone, Block.rail, Block.railPowered, Block.railDetector, Block.button};
+
+	public float getStrVsBlock(ItemStack var1, Block block) {
+		if(Block.config.getProperty("ToolFix").equals("1")) {
+			for(int i = 0; i < toolFixBlocks.length; ++i) {
+				if(toolFixBlocks[i] == block) {
+					return this.toolMaterial.getEfficiencyOnProperMaterial();
+				}
+			}
+		}
+
+		return super.getStrVsBlock(var1, block);
+	}
+	//ToolFix ModEnd
 }
