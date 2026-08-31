@@ -133,7 +133,9 @@ public abstract class EntityPlayer extends EntityLiving {
 	}
 
 	public void updateCloak() {
+    //SkinFix ModStart
 		this.playerCloakUrl = Block.config.getProperty("SkinFix").equals("1") ? ModRetrieveSkin.getCapeURL(this.username) : "http://s3.amazonaws.com/MinecraftCloaks/" + this.username + ".png";
+    //SkinFix ModEnd
 		this.cloakUrl = this.playerCloakUrl;
 	}
 
@@ -247,7 +249,7 @@ public abstract class EntityPlayer extends EntityLiving {
 	}
 
 	public void dropCurrentItem() {
-		this.dropPlayerItemWithRandomChoice(this.inventory.decrStackSize(this.inventory.currentItem, 2), false);
+		this.dropPlayerItemWithRandomChoice(this.inventory.decrStackSize(this.inventory.currentItem, 1), false);
 	}
 
 	public void dropPlayerItem(ItemStack var1) {
