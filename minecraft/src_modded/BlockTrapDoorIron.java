@@ -1,3 +1,4 @@
+//BlockBackPorts ModStart
 package net.minecraft.src;
 
 public class BlockTrapDoorIron extends Block {
@@ -182,3 +183,4 @@ public class BlockTrapDoorIron extends Block {
 		return (var0 & 4) != 0;
 	}
 }
+//BlockBackPorts ModEnd

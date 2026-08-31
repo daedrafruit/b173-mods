@@ -1259,7 +1259,7 @@ public class RenderGlobal implements IWorldAccess {
 
 	public void playRecord(String var1, int var2, int var3, int var4) {
 		this.mc.sndManager.playStreaming(var1, (float)var2, (float)var3, (float)var4, 1.0F, 1.0F);
-    //ModernDisks ModStart
+    //ModernDiscs ModStart
 		String var5 = "C418";
 		if(var1 != null) {
 			if(var1 != "Pigstep" && var1 != "otherside") {
@@ -1275,7 +1275,7 @@ public class RenderGlobal implements IWorldAccess {
 
 			this.mc.ingameGUI.setRecordPlayingMessage(var5 + " - " + var1);
 		}
-    //ModernDisks ModEnd
+    //ModernDiscs ModEnd
 
 	}
 

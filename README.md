@@ -27,21 +27,27 @@ if(Keyboard.getEventKey() == Keyboard.KEY_F4) {
 ```
 
 ModStart Keywords for comments:  
-GoldSilkTouch  
-SoundFix  
-BookshelfDropFix  
-FenceFix  
 WhirlpoolFix  
 ModConfig  
-BlockBackports  
-AppleDrop  
-ClickFix  
+BookshelfDropFix  
 FarLandsFix  
-PressurePlateFence  
+BlockBackPorts  
+GoldSilkTouch  
+ModernDisks  
+BigDroppedItemsFix  
 ModernDiscs  
-SkinFix  
 SaddleDrop  
-
+BlockBackports  
+GoldSwordFireHarvest  
+SkinFix  
+SoundFix  
+ToolFix  
+PressurePlateFence  
+FenceFix  
+AppleDrop  
+FloatingTrapDoor  
+CrashSlabFix  
+StairDropFix
 
 
 BlockBackport  

@@ -63,13 +63,6 @@ public class CraftingManager {
 		this.addRecipe(new ItemStack(Item.fishingRod, 1), new Object[]{"  #", " #X", "# X", Character.valueOf('#'), Item.stick, Character.valueOf('X'), Item.silk});
 		this.addRecipe(new ItemStack(Block.stairCompactCobblestone, 4), new Object[]{"#  ", "## ", "###", Character.valueOf('#'), Block.cobblestone});
 		this.addRecipe(new ItemStack(Item.painting, 1), new Object[]{"###", "#X#", "###", Character.valueOf('#'), Item.stick, Character.valueOf('X'), Block.cloth});
-		if(Block.config.getProperty("GoldenAppleRecipe").equals("1")) {
-			this.addRecipe(new ItemStack(Item.appleGold, 1), new Object[]{"###", "#X#", "###", Character.valueOf('#'), Block.blockGold, Character.valueOf('X'), Item.appleRed});
-		}
-
-		if(Block.config.getProperty("SpongeRecipe").equals("1")) {
-			this.addRecipe(new ItemStack(Block.sponge, 1), new Object[]{" S ", "SYS", " S ", Character.valueOf('S'), Item.slimeBall, Character.valueOf('Y'), new ItemStack(Block.cloth, 1, 4)});
-		}
 		this.addRecipe(new ItemStack(Block.lever, 1), new Object[]{"X", "#", Character.valueOf('#'), Block.cobblestone, Character.valueOf('X'), Item.stick});
 		this.addRecipe(new ItemStack(Block.torchRedstoneActive, 1), new Object[]{"X", "#", Character.valueOf('#'), Item.stick, Character.valueOf('X'), Item.redstone});
 		this.addRecipe(new ItemStack(Item.redstoneRepeater, 1), new Object[]{"#X#", "III", Character.valueOf('#'), Block.torchRedstoneActive, Character.valueOf('X'), Item.redstone, Character.valueOf('I'), Block.stone});
@@ -84,6 +77,14 @@ public class CraftingManager {
 		this.addRecipe(new ItemStack(Item.bed, 1), new Object[]{"###", "XXX", Character.valueOf('#'), Block.cloth, Character.valueOf('X'), Block.planks});
 
     //BlockBackports ModStart
+		if(Block.config.getProperty("GoldenAppleRecipe").equals("1")) {
+			this.addRecipe(new ItemStack(Item.appleGold, 1), new Object[]{"###", "#X#", "###", Character.valueOf('#'), Block.blockGold, Character.valueOf('X'), Item.appleRed});
+		}
+
+		if(Block.config.getProperty("SpongeRecipe").equals("1")) {
+			this.addRecipe(new ItemStack(Block.sponge, 1), new Object[]{" S ", "SYS", " S ", Character.valueOf('S'), Item.slimeBall, Character.valueOf('Y'), new ItemStack(Block.cloth, 1, 4)});
+		}
+
 		if(Block.config.getProperty("FenceGate").equals("1")) {
 			this.addRecipe(new ItemStack(Block.fenceGate, 1), new Object[]{"#W#", "#W#", Character.valueOf('#'), Item.stick, Character.valueOf('W'), Block.planks});
 		}
@@ -100,11 +101,6 @@ public class CraftingManager {
 			this.addRecipe(new ItemStack(Block.stairSingle, 3, 4), new Object[]{"###", Character.valueOf('#'), Block.brick});
 		}
 
-		if(Block.config.getProperty("LeatherBookRecipe").equals("1")) {
-			this.addShapelessRecipe(new ItemStack(Item.book, 1), new Object[]{new ItemStack(Item.paper, 1), new ItemStack(Item.paper, 1), new ItemStack(Item.paper, 1), new ItemStack(Item.leather, 1)});
-		} else {
-			this.addRecipe(new ItemStack(Item.book, 1), new Object[]{"#", "#", "#", Character.valueOf('#'), Item.paper});
-		}
 
 		if(Block.config.getProperty("WoodButton").equals("1")) {
 			if(Block.config.getProperty("ModernWoodButtonRecipe").equals("1")) {
@@ -128,6 +124,14 @@ public class CraftingManager {
 			this.addRecipe(new ItemStack(Block.web, 1), new Object[]{"###", "#S#", "###", Character.valueOf('#'), Item.silk, Character.valueOf('S'), Item.slimeBall});
 		}
     //BlockBackports ModEnd
+
+    //LeatherBookRecipe ModStart
+		if(Block.config.getProperty("LeatherBookRecipe").equals("1")) {
+			this.addShapelessRecipe(new ItemStack(Item.book, 1), new Object[]{new ItemStack(Item.paper, 1), new ItemStack(Item.paper, 1), new ItemStack(Item.paper, 1), new ItemStack(Item.leather, 1)});
+		} else {
+			this.addRecipe(new ItemStack(Item.book, 1), new Object[]{"#", "#", "#", Character.valueOf('#'), Item.paper});
+		}
+    //LeatherBookRecipe ModEnd
 
 		Collections.sort(this.recipes, new RecipeSorter(this));
 		System.out.println(this.recipes.size() + " recipes");

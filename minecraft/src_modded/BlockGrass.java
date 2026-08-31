@@ -10,7 +10,9 @@ public class BlockGrass extends Block {
 	}
 
 	public int getBlockTextureFromSide(int var1) {
+    //GoldSilkTouch ModStart
 		return var1 == 1 ? Block.cloth.getBlockTextureFromSideAndMetadata(1, 13) : (var1 == 0 ? 2 : 3);
+    //GoldSilkTouch ModEnd
 	}
 
 	public int getBlockTexture(IBlockAccess var1, int var2, int var3, int var4, int var5) {
