@@ -44,7 +44,7 @@ public class BlockPressurePlate extends Block {
     boolean isBlockBelow = world.isBlockNormalCube(x, y - 1, z);
 		boolean isFenceBelow = world.getBlockId(x, y - 1, z) == Block.fence.blockID;
 
-		if(!isBlockBelow && (configOn && !isFenceBelow)) {
+		if(!isBlockBelow && (!configOn || !isFenceBelow)) {
 			this.dropBlockAsItem(world, x, y, z, world.getBlockMetadata(x, y, z));
 			world.setBlockWithNotify(x, y, z, 0);
 		}

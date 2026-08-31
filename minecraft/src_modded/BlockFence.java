@@ -23,7 +23,7 @@ public class BlockFence extends Block {
 			float boxMinusZ = 6.0F / 16.0F;
 			float boxPlusZ = 10.0F / 16.0F;
 			if(isFenceMinusZ) {
-				boxPlusZ = 0.0F;
+				boxMinusZ = 0.0F;
 			}
 
 			if(isFencePlusZ) {
@@ -38,7 +38,7 @@ public class BlockFence extends Block {
 				boxPlusX = 1.0F;
 			}
 
-			return AxisAlignedBB.getBoundingBoxFromPool((double)((float)x + boxMinusX), (double)y, (double)((float)z + boxPlusZ), (double)((float)x + boxPlusX), (double)((float)y + 1.5F), (double)((float)z + boxPlusZ));
+			return AxisAlignedBB.getBoundingBoxFromPool((double)((float)x + boxMinusX), (double)y, (double)((float)z + boxMinusZ), (double)((float)x + boxPlusX), (double)((float)y + 1.5F), (double)((float)z + boxPlusZ));
 		}
 	}
 
