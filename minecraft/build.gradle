@@ -12,25 +12,19 @@ java {
     }
 }
 
-configurations {
-    natives
-}
 sourceSets {
     main {
         java {
             srcDirs = ['src']
         }
         resources {
-            srcDirs = ['resources']
+            srcDirs = ['src']
         }
     }
 }
 dependencies {
-    implementation fileTree(dir: '../libraries', include: '**/*.jar')
-    
+    implementation fileTree('../libraries') { include '**/*.jar' }
     implementation files("${rootDir}/jars/deobfuscated.jar")
-    
-    natives fileTree(dir: "../libraries/natives", includes: ['**/*.dll', '**/*.so', '**/*.dylib'])
 }
 
 application {
@@ -39,25 +33,25 @@ application {
         "-Djava.library.path=../libraries/natives",
 
         //debug server mode
-				"-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=5005 -jar app.jar"
-
+        "-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=5005 -jar app.jar"
     ]
 }
 
 run {
     args = [
-        '--username', 'Notch',
+        //'--resourcesProxyPort', '11705',
+        '--username', 'Parker_man',
+        '--uuid', '-',
         '--session', '-',
-        '--gameDir', '../.minecraft/game',
-        '--assetsDir', '../.minecraft/game/assets',
-        '--resourcesProxyPort', '11705',
+        '--version', 'b1.7.3',
+        '--gameDir', './game',
+        '--assetsDir', './game/assets',
+        '--assetIndex', 'b1.7',
+        '--accessToken', '-',
+        '--userProperties', '{}',
+        '--userType', 'legacy',
+        '--versionType', 'release',
         '--skinProxy', 'pre-b1.9-pre4'
     ]
 }
 
-task setupNatives(type: Copy) {
-    from configurations.natives
-    into "build/natives"
-}
-
-compileJava.dependsOn setupNatives
