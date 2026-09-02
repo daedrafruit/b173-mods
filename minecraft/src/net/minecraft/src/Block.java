@@ -189,11 +189,14 @@ public class Block {
 	public static final Block trapdoor = (new BlockTrapDoor(96, Material.wood)).setHardness(3.0F).setStepSound(soundWoodFootstep).setBlockName("trapdoor").disableStats().disableNeighborNotifyOnMetadataChange();
 
   //BlockBackports ModStart
+  //id, texture, material
 	public static final Block stairCompactBrick = (new BlockStairs(108, brick)).setBlockName("stairsBrick").disableNeighborNotifyOnMetadataChange();
 	public static final Block stairCompactSandstone = (new BlockStairs(128, sandStone)).setBlockName("stairsSandstone").disableNeighborNotifyOnMetadataChange();
 	public static final Block fenceGate = (new BlockFenceGate(107, 4)).setHardness(2.0F).setResistance(5.0F).setStepSound(soundWoodFootstep).setBlockName("fenceGate").disableNeighborNotifyOnMetadataChange();
 	public static final Block buttonWood = (new BlockButton(143, planks.blockIndexInTexture)).setHardness(0.5F).setStepSound(soundWoodFootstep).setBlockName("button").disableNeighborNotifyOnMetadataChange();
 	public static final Block trapdoorIron = (new BlockTrapDoorIron(97, Material.iron)).setHardness(5.0F).setStepSound(soundMetalFootstep).setBlockName("trapdoorIron").disableStats().disableNeighborNotifyOnMetadataChange();
+  //material wood so it can be used to burn without editing Material.java
+	public static final Block blockCoal = (new Block(98, 166, Material.wood)).setHardness(3.0F).setResistance(5.0F).setStepSound(soundStoneFootstep).setBlockName("blockCoal");
   //BlockBackports ModEnd
 
 

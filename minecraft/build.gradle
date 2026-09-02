@@ -22,6 +22,7 @@ sourceSets {
         }
     }
 }
+
 dependencies {
     implementation fileTree('../libraries') { include '**/*.jar' }
     implementation files("${rootDir}/jars/deobfuscated.jar")
@@ -39,19 +40,19 @@ application {
 
 run {
     args = [
-        //'--resourcesProxyPort', '11705',
         '--username', 'Parker_man',
         '--uuid', '-',
         '--session', '-',
         '--version', 'b1.7.3',
         '--gameDir', './game',
         '--assetsDir', './game/assets',
-        '--assetIndex', 'b1.7',
         '--accessToken', '-',
         '--userProperties', '{}',
         '--userType', 'legacy',
         '--versionType', 'release',
-        '--skinProxy', 'pre-b1.9-pre4'
+        '--skinProxy', 'pre-b1.9-pre4',
+        //online assets down
+        //'--assetIndex', 'b1.7',
     ]
 }
 
