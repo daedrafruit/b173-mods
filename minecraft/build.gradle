@@ -18,7 +18,7 @@ sourceSets {
             srcDirs = ['src']
         }
         resources {
-            srcDirs = ['src']
+            srcDirs = ['resources']
         }
     }
 }
@@ -34,7 +34,7 @@ application {
         "-Djava.library.path=../libraries/natives",
 
         //debug server mode
-        "-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=5005 -jar app.jar"
+        "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005"
     ]
 }
 
