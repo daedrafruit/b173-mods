@@ -207,7 +207,7 @@ public class Block {
   
   //CoalBlock ModStart
   //material wood so it can be used to burn without editing Material.java
-	public static final Block blockCoal = (new Block(98, 166, Material.wood)).setHardness(3.0F).setResistance(5.0F).setStepSound(soundStoneFootstep).setBlockName("blockCoal");
+	public static final Block blockCoal = (new Block(173, 166, Material.wood)).setHardness(3.0F).setResistance(5.0F).setStepSound(soundStoneFootstep).setBlockName("blockCoal");
   //CoalBlock ModEnd
   
   //RedstoneBlock ModStart
