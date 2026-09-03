@@ -12,6 +12,8 @@ public class Block {
 		"SandstoneStairs=1\n" +
 		"BrickSlab=1\n" +
 		"FenceGate=1\n" +
+		"RedstoneBlock=1\n" +
+		"CoalBlock=1\n" +
 		"WoodButton=1\n" +
 		"IronTrapdoor=1\n" +
 		"FloatingIronTrapdoor=1\n" +
@@ -192,12 +194,25 @@ public class Block {
   //id, texture, material
 	public static final Block stairCompactBrick = (new BlockStairs(108, brick)).setBlockName("stairsBrick").disableNeighborNotifyOnMetadataChange();
 	public static final Block stairCompactSandstone = (new BlockStairs(128, sandStone)).setBlockName("stairsSandstone").disableNeighborNotifyOnMetadataChange();
-	public static final Block fenceGate = (new BlockFenceGate(107, 4)).setHardness(2.0F).setResistance(5.0F).setStepSound(soundWoodFootstep).setBlockName("fenceGate").disableNeighborNotifyOnMetadataChange();
 	public static final Block buttonWood = (new BlockButton(143, planks.blockIndexInTexture)).setHardness(0.5F).setStepSound(soundWoodFootstep).setBlockName("button").disableNeighborNotifyOnMetadataChange();
+  //BlockBackports ModEnd
+  
+  //IronTrapdoor ModStart
 	public static final Block trapdoorIron = (new BlockTrapDoorIron(97, Material.iron)).setHardness(5.0F).setStepSound(soundMetalFootstep).setBlockName("trapdoorIron").disableStats().disableNeighborNotifyOnMetadataChange();
+  //IronTrapdoor ModEnd
+
+  //FenceGate ModStart
+	public static final Block fenceGate = (new BlockFenceGate(107, 4)).setHardness(2.0F).setResistance(5.0F).setStepSound(soundWoodFootstep).setBlockName("fenceGate").disableNeighborNotifyOnMetadataChange();
+  //FenceGate ModEnd
+  
+  //CoalBlock ModStart
   //material wood so it can be used to burn without editing Material.java
 	public static final Block blockCoal = (new Block(98, 166, Material.wood)).setHardness(3.0F).setResistance(5.0F).setStepSound(soundStoneFootstep).setBlockName("blockCoal");
-  //BlockBackports ModEnd
+  //CoalBlock ModEnd
+  
+  //RedstoneBlock ModStart
+	public static final Block blockRedstone = (new Block(152, 167, Material.rock)).setHardness(5.0F).setResistance(10.0F).setStepSound(soundMetalFootstep).setBlockName("blockRedstone");
+  //RedstoneBlock ModEnd
 
 
 	public int blockIndexInTexture;

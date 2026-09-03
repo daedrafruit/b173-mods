@@ -17,6 +17,10 @@ tile.trapdoorIron.desc=
 tile.stoneMoss.name=Moss Stone
 tile.stoneMoss.desc=
 
+tile.blockCoal.name=Coal Block
+tile.blockCoal.desc=
+tile.blockRedstone.name=Redstone Block
+tile.blockRedstone.desc=
 
 
 gui.done=Done

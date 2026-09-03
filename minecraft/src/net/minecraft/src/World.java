@@ -2144,16 +2144,19 @@ public class World implements IBlockAccess {
 		return var5 == 0 ? false : Block.blocksList[var5].isIndirectlyPoweringTo(this, var1, var2, var3, var4);
 	}
 
-	public boolean isBlockGettingPowered(int var1, int var2, int var3) {
-		return this.isBlockProvidingPowerTo(var1, var2 - 1, var3, 0) ? true : (this.isBlockProvidingPowerTo(var1, var2 + 1, var3, 1) ? true : (this.isBlockProvidingPowerTo(var1, var2, var3 - 1, 2) ? true : (this.isBlockProvidingPowerTo(var1, var2, var3 + 1, 3) ? true : (this.isBlockProvidingPowerTo(var1 - 1, var2, var3, 4) ? true : this.isBlockProvidingPowerTo(var1 + 1, var2, var3, 5)))));
+	public boolean isBlockGettingPowered(int x, int y, int z) {
+		return this.isBlockProvidingPowerTo(x, y - 1, z, 0) ? true : (this.isBlockProvidingPowerTo(x, y + 1, z, 1) ? true : (this.isBlockProvidingPowerTo(x, y, z - 1, 2) ? true : (this.isBlockProvidingPowerTo(x, y, z + 1, 3) ? true : (this.isBlockProvidingPowerTo(x - 1, y, z, 4) ? true : this.isBlockProvidingPowerTo(x + 1, y, z, 5)))));
 	}
 
-	public boolean isBlockIndirectlyProvidingPowerTo(int var1, int var2, int var3, int var4) {
-		if(this.isBlockNormalCube(var1, var2, var3)) {
-			return this.isBlockGettingPowered(var1, var2, var3);
+	public boolean isBlockIndirectlyProvidingPowerTo(int x, int y, int z, int side) {
+    //RedstoneBlock ModStart
+    if(this.getBlockId(x, y, z) == Block.blockRedstone.blockID) return true;
+    //RedstoneBlock ModEnd
+		if(this.isBlockNormalCube(x, y, z)) {
+			return this.isBlockGettingPowered(x, y, z);
 		} else {
-			int var5 = this.getBlockId(var1, var2, var3);
-			return var5 == 0 ? false : Block.blocksList[var5].isPoweringTo(this, var1, var2, var3, var4);
+			int var5 = this.getBlockId(x, y, z);
+			return var5 == 0 ? false : Block.blocksList[var5].isPoweringTo(this, x, y, z, side);
 		}
 	}
 

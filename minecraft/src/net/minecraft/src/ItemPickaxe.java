@@ -1,7 +1,7 @@
 package net.minecraft.src;
 
 public class ItemPickaxe extends ItemTool {
-	private static Block[] blocksEffectiveAgainst = new Block[]{Block.cobblestone, Block.stairDouble, Block.stairSingle, Block.stone, Block.sandStone, Block.cobblestoneMossy, Block.oreIron, Block.blockSteel, Block.oreCoal, Block.blockGold, Block.oreGold, Block.oreDiamond, Block.blockDiamond, Block.ice, Block.netherrack, Block.oreLapis, Block.blockLapis, Block.blockCoal};
+	private static Block[] blocksEffectiveAgainst = new Block[]{Block.cobblestone, Block.stairDouble, Block.stairSingle, Block.stone, Block.sandStone, Block.cobblestoneMossy, Block.oreIron, Block.blockSteel, Block.oreCoal, Block.blockGold, Block.oreGold, Block.oreDiamond, Block.blockDiamond, Block.ice, Block.netherrack, Block.oreLapis, Block.blockLapis};
 
 	protected ItemPickaxe(int var1, EnumToolMaterial var2) {
 		super(var1, 2, var2, blocksEffectiveAgainst);
@@ -17,7 +17,9 @@ public class ItemPickaxe extends ItemTool {
 	}
 
 	//ToolFix ModStart
-	private static Block[] toolFixBlocks = new Block[]{Block.oreRedstone, Block.oreRedstoneGlowing, Block.stairCompactCobblestone, Block.doorSteel, Block.brick, Block.stoneOvenIdle, Block.stoneOvenActive, Block.dispenser, Block.pressurePlateStone, Block.rail, Block.railPowered, Block.railDetector, Block.button};
+	//CoalBlock ModStart
+	//RedstoneBlock ModStart
+	private static Block[] toolFixBlocks = new Block[]{Block.oreRedstone, Block.oreRedstoneGlowing, Block.stairCompactCobblestone, Block.doorSteel, Block.brick, Block.stoneOvenIdle, Block.stoneOvenActive, Block.dispenser, Block.pressurePlateStone, Block.rail, Block.railPowered, Block.railDetector, Block.button, Block.blockCoal, Block.blockRedstone};
 
 	public float getStrVsBlock(ItemStack var1, Block block) {
 		if(Block.config.getProperty("ToolFix").equals("1")) {
@@ -31,4 +33,6 @@ public class ItemPickaxe extends ItemTool {
 		return super.getStrVsBlock(var1, block);
 	}
 	//ToolFix ModEnd
+	//CoalBlock ModEnd
+	//RedstoneBlock ModEnd
 }

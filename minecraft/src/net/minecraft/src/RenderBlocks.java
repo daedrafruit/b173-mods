@@ -111,9 +111,9 @@ public class RenderBlocks {
       case 15: return this.renderBlockRepeater(var1, var2, var3, var4);
       case 16: return this.func_31074_b(var1, var2, var3, var4, false);
       case 17: return this.func_31080_c(var1, var2, var3, var4, true);
-      //BlockBackPorts ModStart
+      //FenceGate ModStart
       case 21: return this.renderBlockFenceGate(var1, var2, var3, var4);
-      //BlockBackPorts ModEnd
+      //FenceGate ModEnd
       default: return false;
     }
 	}

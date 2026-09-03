@@ -1,4 +1,4 @@
-//BlockBackPorts ModStart
+//FenceGate ModStart
 package net.minecraft.src;
 
 public class BlockFenceGate extends Block {
@@ -86,4 +86,4 @@ public class BlockFenceGate extends Block {
 		return var0 & 3;
 	}
 }
-//BlockBackPorts ModEnd
+//FenceGate ModEnd
