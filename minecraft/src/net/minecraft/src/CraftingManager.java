@@ -83,8 +83,9 @@ public class CraftingManager {
 		this.addRecipe("GoldenAppleRecipe", new ItemStack(Item.appleGold, 1), new Object[]{"###", "#X#", "###", Character.valueOf('#'), Block.blockGold, Character.valueOf('X'), Item.appleRed});
     //GoldenAppleRecipe ModEnd
 
-    //BlockBackports ModStart
+    //Sponge ModStart
 		this.addRecipe("SpongeRecipe", new ItemStack(Block.sponge, 1), new Object[]{" S ", "SYS", " S ", Character.valueOf('S'), Item.slimeBall, Character.valueOf('Y'), new ItemStack(Block.cloth, 1, 4)});
+    //Sponge ModEnd
 
     //FenceGate ModStart
 		this.addRecipe("FenceGate", new ItemStack(Block.fenceGate, 1), new Object[]{"#W#", "#W#", Character.valueOf('#'), Item.stick, Character.valueOf('W'), Block.planks});
@@ -127,10 +128,12 @@ public class CraftingManager {
     
     //RedstoneBlock ModStart
 		this.addRecipe("RedstoneBlock", new ItemStack(Block.blockRedstone, 1), new Object[]{"###", "###", "###", Character.valueOf('#'), Item.redstone});
+		this.addShapelessRecipe(new ItemStack(Item.redstone, 9), new Object[]{new ItemStack(Block.blockRedstone, 1)});
     //RedstoneBlock ModEnd
     
     //CoalBlock ModStart
 		this.addRecipe("CoalBlock", new ItemStack(Block.blockCoal, 1), new Object[]{"###", "###", "###", Character.valueOf('#'), Item.coal});
+		this.addShapelessRecipe(new ItemStack(Item.coal, 9), new Object[]{new ItemStack(Block.blockCoal, 1)});
     //CoalBlock ModEnd
 
 
