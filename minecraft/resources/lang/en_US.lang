@@ -22,6 +22,9 @@ tile.blockCoal.desc=
 tile.blockRedstone.name=Block of Redstone
 tile.blockRedstone.desc=
 
+tile.blockLapis.name=Block of Lapis Lazuli
+tile.blockLapis.desc=
+
 tile.stairsStone.name=Cobblestone Stairs
 tile.stairsStone.desc=
 tile.stoneSlab.stone.name=Cobblestone Slab
@@ -330,8 +333,6 @@ tile.cloth.white.name=Wool
 tile.cloth.white.desc=
 tile.oreLapis.name=Lapis Lazuli Ore
 tile.oreLapis.desc=
-tile.blockLapis.name=Black of Lapis Lazuli
-tile.blockLapis.desc=
 tile.dispenser.name=Dispenser
 tile.dispenser.desc=
 tile.musicBlock.name=Note Block
