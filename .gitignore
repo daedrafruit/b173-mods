@@ -68,6 +68,7 @@ parker_mod.ini
 !minecraft/src/net/minecraft/src/RenderItem.java
 !minecraft/src/net/minecraft/src/RenderList.java
 !minecraft/src/net/minecraft/src/World.java
+!minecraft/src/net/minecraft/src/BlockRedstone.java
 
 #other
 minecraft_server/

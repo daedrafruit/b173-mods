@@ -211,7 +211,7 @@ public class Block {
   //CoalBlock ModEnd
   
   //RedstoneBlock ModStart
-	public static final Block blockRedstone = (new Block(152, 167, Material.rock)).setHardness(5.0F).setResistance(10.0F).setStepSound(soundMetalFootstep).setBlockName("blockRedstone");
+	public static final Block blockRedstone = (new BlockRedstone(152, 167, Material.rock)).setHardness(5.0F).setResistance(10.0F).setStepSound(soundMetalFootstep).setBlockName("blockRedstone");
   //RedstoneBlock ModEnd
 
 

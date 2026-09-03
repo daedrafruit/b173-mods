@@ -2150,13 +2150,13 @@ public class World implements IBlockAccess {
 
 	public boolean isBlockIndirectlyProvidingPowerTo(int x, int y, int z, int side) {
     //RedstoneBlock ModStart
-    if(this.getBlockId(x, y, z) == Block.blockRedstone.blockID) return true;
+    //if(this.getBlockId(x, y, z) == Block.blockRedstone.blockID) return true;
     //RedstoneBlock ModEnd
-		if(this.isBlockNormalCube(x, y, z)) {
+		if(this.isBlockNormalCube(x, y, z) && this.getBlockId(x, y, z) != Block.blockRedstone.blockID ) {
 			return this.isBlockGettingPowered(x, y, z);
 		} else {
-			int var5 = this.getBlockId(x, y, z);
-			return var5 == 0 ? false : Block.blocksList[var5].isPoweringTo(this, x, y, z, side);
+			int id = this.getBlockId(x, y, z);
+			return id == 0 ? false : Block.blocksList[id].isPoweringTo(this, x, y, z, side);
 		}
 	}
 
