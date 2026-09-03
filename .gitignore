@@ -1,6 +1,7 @@
 .gradle/
 .idea/
 minecraft_client.iml
+minecraft.iml
 .settings/
 .project
 .classpath
@@ -22,6 +23,7 @@ md5/
 output/
 reobf/
 parker_mod.ini
+*.zip
 
 #source code
 *.java
