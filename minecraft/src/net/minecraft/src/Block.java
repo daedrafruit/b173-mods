@@ -198,7 +198,7 @@ public class Block {
   //BlockBackports ModEnd
   
   //IronTrapdoor ModStart
-	public static final Block trapdoorIron = (new BlockTrapDoorIron(97, Material.iron)).setHardness(5.0F).setStepSound(soundMetalFootstep).setBlockName("trapdoorIron").disableStats().disableNeighborNotifyOnMetadataChange();
+	public static final Block trapdoorIron = (new BlockTrapDoorIron(167, Material.iron)).setHardness(5.0F).setStepSound(soundMetalFootstep).setBlockName("trapdoorIron").disableStats().disableNeighborNotifyOnMetadataChange();
   //IronTrapdoor ModEnd
 
   //FenceGate ModStart
