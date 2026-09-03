@@ -14,14 +14,18 @@ tile.fenceGate.desc=
 tile.trapdoorIron.name=Iron Trapdoor
 tile.trapdoorIron.desc=
 
-tile.stoneMoss.name=Moss Stone
+tile.stoneMoss.name=Mossy Cobblestone
 tile.stoneMoss.desc=
 
-tile.blockCoal.name=Coal Block
+tile.blockCoal.name=Block of Coal
 tile.blockCoal.desc=
-tile.blockRedstone.name=Redstone Block
+tile.blockRedstone.name=Block of Redstone
 tile.blockRedstone.desc=
 
+tile.stairsStone.name=Cobblestone Stairs
+tile.stairsStone.desc=
+tile.stoneSlab.stone.name=Cobblestone Slab
+tile.stoneSlab.stone.desc=
 
 gui.done=Done
 gui.cancel=Cancel
@@ -203,8 +207,6 @@ tile.blockGold.name=Block of Gold
 tile.blockGold.desc=
 tile.blockIron.name=Block of Iron
 tile.blockIron.desc=
-tile.stoneSlab.stone.name=Stone Slab
-tile.stoneSlab.stone.desc=
 tile.stoneSlab.sand.name=Sandstone Slab
 tile.stoneSlab.sand.desc=
 tile.stoneSlab.wood.name=Wooden Slab
@@ -255,8 +257,6 @@ tile.goldenRail.name=Powered Rail
 tile.goldenRail.desc=
 tile.detectorRail.name=Detector Rail
 tile.detectorRail.desc=
-tile.stairsStone.name=Stone Stairs
-tile.stairsStone.desc=
 
 tile.lever.name=Lever
 tile.lever.desc=
@@ -330,7 +330,7 @@ tile.cloth.white.name=Wool
 tile.cloth.white.desc=
 tile.oreLapis.name=Lapis Lazuli Ore
 tile.oreLapis.desc=
-tile.blockLapis.name=Lapis Lazuli Block
+tile.blockLapis.name=Black of Lapis Lazuli
 tile.blockLapis.desc=
 tile.dispenser.name=Dispenser
 tile.dispenser.desc=
