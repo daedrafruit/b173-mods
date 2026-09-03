@@ -19,7 +19,8 @@ public class ItemPickaxe extends ItemTool {
 	//ToolFix ModStart
 	//CoalBlock ModStart
 	//RedstoneBlock ModStart
-	private static Block[] toolFixBlocks = new Block[]{Block.oreRedstone, Block.oreRedstoneGlowing, Block.stairCompactCobblestone, Block.doorSteel, Block.brick, Block.stoneOvenIdle, Block.stoneOvenActive, Block.dispenser, Block.pressurePlateStone, Block.rail, Block.railPowered, Block.railDetector, Block.button, Block.blockCoal, Block.blockRedstone, Block.trapdoorIron};
+	//BlockBackports ModStart
+	private static Block[] toolFixBlocks = new Block[]{Block.oreRedstone, Block.oreRedstoneGlowing, Block.stairCompactCobblestone, Block.doorSteel, Block.brick, Block.stoneOvenIdle, Block.stoneOvenActive, Block.dispenser, Block.pressurePlateStone, Block.rail, Block.railPowered, Block.railDetector, Block.stairCompactBrick, Block.stairCompactSandstone, Block.button, Block.blockCoal, Block.blockRedstone, Block.trapdoorIron};
 
 	public float getStrVsBlock(ItemStack var1, Block block) {
 		if(Block.config.getProperty("ToolFix").equals("1")) {
@@ -35,4 +36,5 @@ public class ItemPickaxe extends ItemTool {
 	//ToolFix ModEnd
 	//CoalBlock ModEnd
 	//RedstoneBlock ModEnd
+	//BlockBackports ModEnd
 }
