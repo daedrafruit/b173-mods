@@ -48,17 +48,17 @@ public class BlockStep extends Block {
 		return this.blockType;
 	}
 
-	public void onBlockAdded(World var1, int var2, int var3, int var4) {
+	public void onBlockAdded(World world, int x, int y, int z) {
 		if(this != Block.stairSingle) {
-			super.onBlockAdded(var1, var2, var3, var4);
+			super.onBlockAdded(world, x, y, z);
 		}
 
-		int var5 = var1.getBlockId(var2, var3 - 1, var4);
-		int var6 = var1.getBlockMetadata(var2, var3, var4);
-		int var7 = var1.getBlockMetadata(var2, var3 - 1, var4);
-		if(var6 == var7 && var5 == stairSingle.blockID) {
-			var1.setBlockWithNotify(var2, var3, var4, 0);
-			var1.setBlockAndMetadataWithNotify(var2, var3 - 1, var4, Block.stairDouble.blockID, var6);
+		int below = world.getBlockId(x, y - 1, z);
+		int metadata = world.getBlockMetadata(x, y, z);
+		int belowMetadata = world.getBlockMetadata(x, y - 1, z);
+		if(metadata == belowMetadata && below == stairSingle.blockID) {
+			world.setBlockWithNotify(x, y, z, 0);
+			world.setBlockAndMetadataWithNotify(x, y - 1, z, Block.stairDouble.blockID, metadata);
 		}
 
 	}

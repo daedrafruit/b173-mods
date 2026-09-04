@@ -50,7 +50,7 @@ run {
         '--userProperties', '{}',
         '--userType', 'legacy',
         '--versionType', 'release',
-        '--skinProxy', 'pre-b1.9-pre4',
+        //'--skinProxy', 'pre-b1.9-pre4',
         //online assets down
         //'--assetIndex', 'b1.7',
     ]

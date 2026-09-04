@@ -2089,23 +2089,23 @@ public class World implements IBlockAccess {
 
 	}
 
-	public boolean canBlockBePlacedAt(int var1, int var2, int var3, int var4, boolean var5, int var6) {
-		int var7 = this.getBlockId(var2, var3, var4);
-		Block var8 = Block.blocksList[var7];
-		Block var9 = Block.blocksList[var1];
-		AxisAlignedBB var10 = var9.getCollisionBoundingBoxFromPool(this, var2, var3, var4);
+	public boolean canBlockBePlacedAt(int placeBlockID, int x, int y, int z, boolean var5, int var6) {
+		int blockID = this.getBlockId(x, y, z);
+		Block onBlock = Block.blocksList[blockID];
+		Block placeBlock = Block.blocksList[placeBlockID];
+		AxisAlignedBB boundingBox = placeBlock.getCollisionBoundingBoxFromPool(this, x, y, z);
 		if(var5) {
-			var10 = null;
+			boundingBox = null;
 		}
 
-		if(var10 != null && !this.checkIfAABBIsClear(var10)) {
+		if(boundingBox != null && !this.checkIfAABBIsClear(boundingBox)) {
 			return false;
 		} else {
-			if(var8 == Block.waterMoving || var8 == Block.waterStill || var8 == Block.lavaMoving || var8 == Block.lavaStill || var8 == Block.fire || var8 == Block.snow) {
-				var8 = null;
+			if(onBlock == Block.waterMoving || onBlock == Block.waterStill || onBlock == Block.lavaMoving || onBlock == Block.lavaStill || onBlock == Block.fire || onBlock == Block.snow) {
+				onBlock = null;
 			}
 
-			return var1 > 0 && var8 == null && var9.canPlaceBlockOnSide(this, var2, var3, var4, var6);
+			return (placeBlockID > 0 && onBlock == null && placeBlock.canPlaceBlockOnSide(this, x, y, z, var6));
 		}
 	}
 
