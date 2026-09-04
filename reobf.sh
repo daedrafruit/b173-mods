@@ -5,10 +5,10 @@ if ! git diff --quiet; then
 fi
 
 rm -rf minecraft/reobf minecraft/src
-java -jar ../../RetroMCP-Java/build/libs/RetroMCP-CLI-all.jar decompile
+java -jar ../RetroMCP-Java/build/libs/RetroMCP-CLI-all.jar decompile
 git restore .
-java -jar ../../RetroMCP-Java/build/libs/RetroMCP-CLI-all.jar recompile
-java -jar ../../RetroMCP-Java/build/libs/RetroMCP-CLI-all.jar reobfuscate
+java -jar ../RetroMCP-Java/build/libs/RetroMCP-CLI-all.jar recompile
+java -jar ../RetroMCP-Java/build/libs/RetroMCP-CLI-all.jar reobfuscate
 cp -r minecraft/resources/* minecraft/reobf
 rm -f Parker_mod.zip
 cd minecraft/reobf/
