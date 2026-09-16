@@ -23,7 +23,7 @@ public class PlayerControllerSP extends PlayerController {
 		int blockID = var2.getBlockId(var4, var5, var6);
     //SneakPlace ModStart
     if (player.isSneaking()) {
-      return var3.useItem(player, var2, var4, var5, var6, var7);
+      return (var3 == null ? false : var3.useItem(player, var2, var4, var5, var6, var7));
     }
     //SneakPlace ModEnd
     return blockID > 0 && Block.blocksList[blockID].blockActivated(var2, var4, var5, var6, player) ? true : (var3 == null ? false : var3.useItem(player, var2, var4, var5, var6, var7));
