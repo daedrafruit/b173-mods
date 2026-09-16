@@ -1565,7 +1565,7 @@ public class World implements IBlockAccess {
 			this.func_28107_a(var1, 1004, var2, var3, var4, 0);
       //GoldSwordFireHarvest ModStart
 			ItemStack equippedItem = var1.getCurrentEquippedItem();
-			if(equippedItem != null && equippedItem.itemID == Item.swordGold.shiftedIndex && this.getBlockId(var2, var3 - 1, var4) == Block.netherrack.blockID && Block.config.getProperty("GoldSwordFireHarvest").equals("1")) {
+			if(equippedItem != null && equippedItem.itemID == Item.swordGold.shiftedIndex && this.getBlockId(var2, var3 - 1, var4) == Block.netherrack.blockID) {
 				Block.fire.dropBlockAsItem_do(this, var2, var3, var4, new ItemStack(Block.fire.blockID, 1, this.getBlockMetadata(var2, var3, var4)));
 			}
       //GoldSwordFireHarvest ModEnd

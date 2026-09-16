@@ -80,8 +80,7 @@ public class EntityCreeper extends EntityMob {
 		super.onDeath(var1);
 		if(var1 instanceof EntitySkeleton) {
       //ModernDiscs ModStart
-			String modernOn = Block.config.getProperty("ModernDiscs");
-			int maxDisc = modernOn.equals("2") ? 16 : (modernOn.equals("1") ? 12 : 2);
+			int maxDisc = 12; // 16 would be all discs including modern
 			this.dropItem(Item.record13.shiftedIndex + this.rand.nextInt(maxDisc), 1);
       //ModernDiscs ModEnd
 		}

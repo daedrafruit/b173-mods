@@ -25,11 +25,8 @@ public class BlockSand extends Block {
 		if(canFallBelow(world, x, y - 1, z) && y >= 0) {
 			byte var5 = 32;
 			if(!fallInstantly && world.checkChunksExist(x - var5, y - var5, z - var5, x + var5, y + var5, z + var5)) {
-				EntityFallingSand sandEntity = new EntityFallingSand(world, (double)((float)x + 0.5F), (double)((float)y + 0.5F), (double)((float)z + 0.5F), this.blockID);
         //FarLandsFix ModStart
-				if(this.config.getProperty("FixFarGravityBlocks").equals("1")) {
-					sandEntity = new EntityFallingSand(world, (double)x + 0.5D, (double)y + 0.5D, (double)z + 0.5D, this.blockID);
-				}
+				EntityFallingSand sandEntity = new EntityFallingSand(world, (double)x + 0.5D, (double)y + 0.5D, (double)z + 0.5D, this.blockID);
         //FarLandsFix ModEnd
 
 				world.entityJoinedWorld(sandEntity);

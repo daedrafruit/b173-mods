@@ -10,7 +10,7 @@ public class ItemPickaxe extends ItemTool {
 	public boolean canHarvestBlock(Block block) {
 
   //GoldSilkTouch ModStart
-  int harvestLevel = this.toolMaterial == EnumToolMaterial.GOLD && Block.config.getProperty("GoldSilkTouch").equals("1") ? 2 : this.toolMaterial.getHarvestLevel();
+  int harvestLevel = this.toolMaterial == EnumToolMaterial.GOLD ? 2 : this.toolMaterial.getHarvestLevel();
   //GoldSilkTouch ModEnd
 
 		return block == Block.obsidian ? harvestLevel == 3 : (block != Block.blockDiamond && block != Block.oreDiamond ? (block != Block.blockGold && block != Block.oreGold ? (block != Block.blockSteel && block != Block.oreIron ? (block != Block.blockLapis && block != Block.oreLapis ? (block != Block.oreRedstone && block != Block.oreRedstoneGlowing ? (block.blockMaterial == Material.rock ? true : block.blockMaterial == Material.iron) : harvestLevel >= 2) : harvestLevel >= 1) : harvestLevel >= 1) : harvestLevel >= 2) : harvestLevel >= 2);
@@ -23,11 +23,9 @@ public class ItemPickaxe extends ItemTool {
 	private static Block[] toolFixBlocks = new Block[]{Block.oreRedstone, Block.oreRedstoneGlowing, Block.stairCompactCobblestone, Block.doorSteel, Block.brick, Block.stoneOvenIdle, Block.stoneOvenActive, Block.dispenser, Block.pressurePlateStone, Block.rail, Block.railPowered, Block.railDetector, Block.stairCompactBrick, Block.stairCompactSandstone, Block.button, Block.blockCoal, Block.blockRedstone, Block.trapdoorIron};
 
 	public float getStrVsBlock(ItemStack var1, Block block) {
-		if(Block.config.getProperty("ToolFix").equals("1")) {
-			for(int i = 0; i < toolFixBlocks.length; ++i) {
-				if(toolFixBlocks[i] == block) {
-					return this.toolMaterial.getEfficiencyOnProperMaterial();
-				}
+		for(int i = 0; i < toolFixBlocks.length; ++i) {
+			if(toolFixBlocks[i] == block) {
+				return this.toolMaterial.getEfficiencyOnProperMaterial();
 			}
 		}
 

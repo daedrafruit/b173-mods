@@ -16,7 +16,7 @@ public class EntityOtherPlayerMP extends EntityPlayer {
 		this.stepHeight = 0.0F;
 		if(var2 != null && var2.length() > 0) {
       //SkinFix ModStart
-			this.skinUrl = Block.config.getProperty("SkinFix").equals("1") ? ModRetrieveSkin.getSkinURL(this.username) : "http://s3.amazonaws.com/MinecraftSkins/" + var2 + ".png";
+			this.skinUrl = ModRetrieveSkin.getSkinURL(this.username);
       //SkinFix ModEnd
 		}
 

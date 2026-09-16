@@ -21,7 +21,7 @@ public class BlockIce extends BlockBreakable {
 	public void harvestBlock(World world, EntityPlayer player, int x, int y, int z, int metadata) {
 		super.harvestBlock(world, player, x, y, z, metadata);
 		ItemStack equippedItem = player.getCurrentEquippedItem();
-		boolean isSilk = equippedItem != null && equippedItem.itemID == Item.pickaxeGold.shiftedIndex && Block.config.getProperty("GoldSilkTouch").equals("1");
+		boolean isSilk = equippedItem != null && equippedItem.itemID == Item.pickaxeGold.shiftedIndex;
 		if(!isSilk) {
 			Material blockBelow = world.getBlockMaterial(x, y - 1, z);
 			if(blockBelow.getIsSolid() || blockBelow.getIsLiquid()) {

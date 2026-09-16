@@ -85,7 +85,7 @@ public class PlayerControllerSP extends PlayerController {
 				this.prevBlockDamage = 0.0F;
 				this.field_1069_h = 0.0F;
 				//ClickFix ModStart
-				this.blockHitWait = Block.config.getProperty("ClickFix").equals("1") ? 0 : 5;
+				this.blockHitWait = 0;
 				//ClickFix ModEnd
 			}
 		} else {

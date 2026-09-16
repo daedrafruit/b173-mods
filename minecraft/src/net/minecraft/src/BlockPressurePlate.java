@@ -32,19 +32,17 @@ public class BlockPressurePlate extends Block {
 
   //PressurePlateFence ModStart
 	public boolean canPlaceBlockAt(World world, int x, int y, int z) {
-    boolean configOn = this.config.getProperty("PlacePressurePlateOnFence").equals("1"); 
     boolean isBlockBelow = world.isBlockNormalCube(x, y - 1, z);
 		boolean isFenceBelow = world.getBlockId(x, y - 1, z) == Block.fence.blockID;
 
-		return configOn ? isBlockBelow || isFenceBelow : isBlockBelow;
+		return isBlockBelow || isFenceBelow;
 	}
 
 	public void onNeighborBlockChange(World world, int x, int y, int z, int metadata) {
-    boolean configOn = this.config.getProperty("PlacePressurePlateOnFence").equals("1"); 
     boolean isBlockBelow = world.isBlockNormalCube(x, y - 1, z);
 		boolean isFenceBelow = world.getBlockId(x, y - 1, z) == Block.fence.blockID;
 
-		if(!isBlockBelow && (!configOn || !isFenceBelow)) {
+		if(!isBlockBelow && !isFenceBelow) {
 			this.dropBlockAsItem(world, x, y, z, world.getBlockMetadata(x, y, z));
 			world.setBlockWithNotify(x, y, z, 0);
 		}

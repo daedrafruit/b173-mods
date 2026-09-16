@@ -4,9 +4,7 @@ public class BlockNote extends BlockContainer {
 	public BlockNote(int var1) {
 		super(var1, 74, Material.wood);
     //SoundFix ModStart
-		if(config.getProperty("NoteblockSound").equals("1")) {
-			this.setStepSound(soundWoodFootstep);
-		}
+		this.setStepSound(soundWoodFootstep);
     //SoundFix ModEnd
 
 	}

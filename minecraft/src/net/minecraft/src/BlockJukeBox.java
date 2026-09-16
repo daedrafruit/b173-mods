@@ -7,9 +7,7 @@ public class BlockJukeBox extends BlockContainer {
 
 	public int getBlockTextureFromSide(int var1) {
     //SoundFix ModStart
-		if(config.getProperty("NoteblockSound").equals("1")) {
-			this.setStepSound(soundWoodFootstep);
-		}
+		this.setStepSound(soundWoodFootstep);
     //SoundFix ModEnd
 
 		return this.blockIndexInTexture + (var1 == 1 ? 1 : 0);

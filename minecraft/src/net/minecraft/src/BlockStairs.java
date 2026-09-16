@@ -17,15 +17,11 @@ public class BlockStairs extends Block {
 
   //StairDropFix ModStart
 	public int idDropped(int var1, Random var2) {
-		return Block.config.getProperty("StairDropFix").equals("1") ? this.blockID : this.modelBlock.idDropped(var1, var2);
+		return this.blockID;
 	}
 
 	public void dropBlockAsItemWithChance(World var1, int var2, int var3, int var4, int var5, float var6) {
-		if(Block.config.getProperty("StairDropFix").equals("1")) {
-			super.dropBlockAsItemWithChance(var1, var2, var3, var4, var5, var6);
-		} else {
-			this.modelBlock.dropBlockAsItemWithChance(var1, var2, var3, var4, var5, var6);
-		}
+		super.dropBlockAsItemWithChance(var1, var2, var3, var4, var5, var6);
 	}
   //StairDropFix ModEnd
 

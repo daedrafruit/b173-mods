@@ -49,7 +49,7 @@ public class EntityPig extends EntityAnimal {
   //SaddleDrop ModStart
 	public void onDeath(Entity var1) {
 		super.onDeath(var1);
-		if(this.getSaddled() && Block.config.getProperty("SaddleDrop").equals("1")) {
+		if(this.getSaddled()) {
 			this.dropItem(Item.saddle.shiftedIndex, 1);
 		}
 	}

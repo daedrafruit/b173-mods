@@ -5,76 +5,6 @@ import java.util.Random;
 
 public class Block {
 
-  //ModConfig ModStart
-	public static ModConfig config = new ModConfig("parker_mod.ini",
-		"# BlockBackports\n" +
-		"BrickStairs=1\n" +
-		"SandstoneStairs=1\n" +
-		"BrickSlab=1\n" +
-		"FenceGate=1\n" +
-		"RedstoneBlock=1\n" +
-		"CoalBlock=1\n" +
-		"WoodButton=1\n" +
-		"IronTrapdoor=1\n" +
-		"FloatingIronTrapdoor=1\n" +
-		"# ModernWoodButtonRecipe: 0 = 2 Logs (custom, keeps wood buttons priced relative to stone buttons), 1 = 1 Plank (modern vanilla)\n" +
-		"ModernWoodButtonRecipe=0\n" +
-		"# ModernStoneButtonRecipe: 0 = 2 Stone, 1 = 1 Stone (modern vanilla)\n" +
-		"ModernStoneButtonRecipe=0\n" +
-		"# CobwebRecipe: 8 string surrounding a slime ball\n" +
-		"CobwebRecipe=1\n" +
-		"AppleDrop=1\n" +
-		"# GoldenAppleRecipe: Recipe exists in base game, disable to maintain golden apple rarity\n" +
-		"GoldenAppleRecipe=0\n" +
-		"\n" +
-		"ToolFix=1\n" +
-		"\n" +
-		"# FixBookshelvesDropNothing: 0 = Nothing (vanilla), 1 = x3 Books (modern vanilla), 2 = x1 Bookshelf\n" +
-		"FixBookshelvesDropNothing=1\n" +
-		"\n" +
-		"ClickFix=1\n" +
-		"\n" +
-		"BigDroppedItemsFix=1\n" +
-		"\n" +
-		"FixFenceCollision=1\n" +
-		"PlaceFloatingFence=1\n" +
-		"\n" +
-		"PlacePressurePlateOnFence=1\n" +
-		"\n" +
-		"LeatherBookRecipe=1\n" +
-		"\n" +
-		"FixFarJitter=1\n" +
-		"FixFarGravityBlocks=1\n" +
-		"\n" +
-		"# BedSound: 0 = Stone (vanilla), 1 = Wood (modern vanilla), 2 = Cloth\n" +
-		"BedSound=2\n" +
-		"JukeboxSound=1\n" +
-		"NoteblockSound=1\n" +
-		"\n" +
-		"SkinFix=1\n" +
-		"\n" +
-		"# FloatingTrapDoor: the wooden trapdoor (see FloatingIronTrapdoor above for the iron one)\n" +
-		"FloatingTrapDoor=1\n" +
-		"\n" +
-		"CrashSlabFix=1\n" +
-		"\n" +
-		"# ModernDiscs: 0 = Vanilla (13, cat), 1 = Classic discs (adds blocks/chirp/far/mall/mellohi/stal/strad/ward/11/wait), 2 = All discs including modern (adds Pigstep/otherside/Five/Relic)\n" +
-		"ModernDiscs=1\n" +
-		"\n" +
-		"WhirlpoolFix=1\n" +
-		"\n" +
-		"GoldSilkTouch=1\n" +
-		"\n" +
-		"StairDropFix=1\n" +
-		"\n" +
-		"SaddleDrop=1\n" +
-		"\n" +
-		"# SpongeRecipe: yellow wool in center, slime ball on 4 sides\n" +
-		"SpongeRecipe=1\n" +
-		"\n" +
-		"# GoldSwordFireHarvest: gold sword can pick up fire burning over netherrack as an item, also enables the vanilla chainmail recipe which uses fire as an ingredient\n" +
-		"GoldSwordFireHarvest=1\n");
-  //ModConfig ModEnd
 
 	public static final StepSound soundPowderFootstep = new StepSound("stone", 1.0F, 1.0F);
 	public static final StepSound soundWoodFootstep = new StepSound("wood", 1.0F, 1.0F);
@@ -629,7 +559,7 @@ public class Block {
 		boolean isAxeSilk = equippedItem == Item.axeGold.shiftedIndex && (this == Block.bookShelf || this == Block.stairCompactPlanks);
 		boolean isShearsSilk = equippedItem == Item.shears.shiftedIndex && this == Block.web;
 
-		if(((isPickSilk || isShovelSilk || isSwordSilk || isAxeSilk) && config.getProperty("GoldSilkTouch").equals("1")) || isShearsSilk) {
+		if(isPickSilk || isShovelSilk || isSwordSilk || isAxeSilk || isShearsSilk) {
 			int redstoneID = this == Block.oreRedstoneGlowing ? Block.oreRedstone.blockID : this.blockID;
 			int leavesID = this == Block.leaves ? metadata & 3 : metadata;
 			this.dropBlockAsItem_do(world, x, y, z, new ItemStack(redstoneID, 1, leavesID));

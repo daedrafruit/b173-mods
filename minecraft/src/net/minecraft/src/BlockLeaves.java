@@ -159,7 +159,7 @@ public class BlockLeaves extends BlockLeavesBase {
   //AppleDrop ModStart
 	public void dropBlockAsItemWithChance(World world, int x, int y, int z, int metadata, float var6) {
 		super.dropBlockAsItemWithChance(world, x, y, z, metadata, var6);
-		if(!world.multiplayerWorld && (metadata & 3) == 0 && Block.config.getProperty("AppleDrop").equals("1") && world.rand.nextInt(200) == 0) {
+		if(!world.multiplayerWorld && (metadata & 3) == 0 && world.rand.nextInt(200) == 0) {
 			this.dropBlockAsItem_do(world, x, y, z, new ItemStack(Item.appleRed, 1, 0));
 		}
 	}

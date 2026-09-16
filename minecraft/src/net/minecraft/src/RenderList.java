@@ -7,9 +7,6 @@ public class RenderList {
 	private int field_1242_a;
 	private int field_1241_b;
 	private int field_1240_c;
-	private float field_1239_d;
-	private float field_1238_e;
-	private float field_1237_f;
 	private double field_1239_dd;
 	private double field_1238_ed;
 	private double field_1237_fd;
@@ -24,16 +21,9 @@ public class RenderList {
 		this.field_1241_b = var2;
 		this.field_1240_c = var3;
     //FarLandsFix ModStart
-		if(Block.config.getProperty("FixFarJitter").equals("1")) {
-			this.field_1239_dd = var4;
-			this.field_1238_ed = var6;
-			this.field_1237_fd = var8;
-		}
-    else {
-			this.field_1239_d = (float)var4;
-			this.field_1238_e = (float)var6;
-			this.field_1237_f = (float)var8;
-		}
+		this.field_1239_dd = var4;
+		this.field_1238_ed = var6;
+		this.field_1237_fd = var8;
     //FarLandsFix ModEnd
 
 	}
@@ -60,12 +50,7 @@ public class RenderList {
 			if(this.field_1236_g.remaining() > 0) {
 				GL11.glPushMatrix();
         //FarLandsFix ModStart
-				if(Block.config.getProperty("FixFarJitter").equals("1")) {
-					GL11.glTranslated((double)this.field_1242_a - this.field_1239_dd, (double)this.field_1241_b - this.field_1238_ed, (double)this.field_1240_c - this.field_1237_fd);
-				}
-        else {
-					GL11.glTranslatef((float)this.field_1242_a - this.field_1239_d, (float)this.field_1241_b - this.field_1238_e, (float)this.field_1240_c - this.field_1237_f);
-				}
+				GL11.glTranslated((double)this.field_1242_a - this.field_1239_dd, (double)this.field_1241_b - this.field_1238_ed, (double)this.field_1240_c - this.field_1237_fd);
         //FarLandsFix ModEnd
 
 				GL11.glCallLists(this.field_1236_g);

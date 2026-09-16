@@ -8,9 +8,7 @@ import java.util.List;
 public class CraftingManager {
 	private static final CraftingManager instance = new CraftingManager();
 	private List recipes = new ArrayList();
-	//BlockBackports ModStart
-	private HashMap configGatedRecipes = new HashMap();
-	//BlockBackports ModEnd
+	private IRecipe disabledGoldenAppleRecipe;
 
 	public static final CraftingManager getInstance() {
 		return instance;
@@ -80,59 +78,48 @@ public class CraftingManager {
 		this.addRecipe(new ItemStack(Item.bed, 1), new Object[]{"###", "XXX", Character.valueOf('#'), Block.cloth, Character.valueOf('X'), Block.planks});
 
     //GoldenAppleRecipe ModStart
-		this.addRecipe("GoldenAppleRecipe", new ItemStack(Item.appleGold, 1), new Object[]{"###", "#X#", "###", Character.valueOf('#'), Block.blockGold, Character.valueOf('X'), Item.appleRed});
+    // recipe exists in base game, kept registered but disabled below to preserve golden apple rarity
+		this.disabledGoldenAppleRecipe = this.addRecipe(new ItemStack(Item.appleGold, 1), new Object[]{"###", "#X#", "###", Character.valueOf('#'), Block.blockGold, Character.valueOf('X'), Item.appleRed});
     //GoldenAppleRecipe ModEnd
 
     //Sponge ModStart
-		this.addRecipe("SpongeRecipe", new ItemStack(Block.sponge, 1), new Object[]{" S ", "SYS", " S ", Character.valueOf('S'), Item.slimeBall, Character.valueOf('Y'), new ItemStack(Block.cloth, 1, 4)});
+		this.addRecipe(new ItemStack(Block.sponge, 1), new Object[]{" S ", "SYS", " S ", Character.valueOf('S'), Item.slimeBall, Character.valueOf('Y'), new ItemStack(Block.cloth, 1, 4)});
     //Sponge ModEnd
 
     //FenceGate ModStart
-		this.addRecipe("FenceGate", new ItemStack(Block.fenceGate, 1), new Object[]{"#W#", "#W#", Character.valueOf('#'), Item.stick, Character.valueOf('W'), Block.planks});
+		this.addRecipe(new ItemStack(Block.fenceGate, 1), new Object[]{"#W#", "#W#", Character.valueOf('#'), Item.stick, Character.valueOf('W'), Block.planks});
     //FenceGate ModStart
-    
+
     //LeatherBookRecipe ModStart
-		if(Block.config.getProperty("LeatherBookRecipe").equals("1")) {
-			this.addShapelessRecipe(new ItemStack(Item.book, 1), new Object[]{new ItemStack(Item.paper, 1), new ItemStack(Item.paper, 1), new ItemStack(Item.paper, 1), new ItemStack(Item.leather, 1)});
-		} else {
-			this.addRecipe(new ItemStack(Item.book, 1), new Object[]{"#", "#", "#", Character.valueOf('#'), Item.paper});
-		}
+		this.addShapelessRecipe(new ItemStack(Item.book, 1), new Object[]{new ItemStack(Item.paper, 1), new ItemStack(Item.paper, 1), new ItemStack(Item.paper, 1), new ItemStack(Item.leather, 1)});
     //LeatherBookRecipe ModEnd
-    
+
     //IronTrapdoor ModStart
-		this.addRecipe("IronTrapdoor", new ItemStack(Block.trapdoorIron, 2), new Object[]{"###", "###", Character.valueOf('#'), Item.ingotIron});
+		this.addRecipe(new ItemStack(Block.trapdoorIron, 2), new Object[]{"###", "###", Character.valueOf('#'), Item.ingotIron});
     //IronTrapdoor ModEnd
 
     //BlockBackports ModStart
-		this.addRecipe("SandstoneStairs", new ItemStack(Block.stairCompactSandstone, 4), new Object[]{"#  ", "## ", "###", Character.valueOf('#'), Block.sandStone});
+		this.addRecipe(new ItemStack(Block.stairCompactSandstone, 4), new Object[]{"#  ", "## ", "###", Character.valueOf('#'), Block.sandStone});
 
-		this.addRecipe("BrickStairs", new ItemStack(Block.stairCompactBrick, 4), new Object[]{"#  ", "## ", "###", Character.valueOf('#'), Block.brick});
+		this.addRecipe(new ItemStack(Block.stairCompactBrick, 4), new Object[]{"#  ", "## ", "###", Character.valueOf('#'), Block.brick});
 
-		this.addRecipe("BrickSlab", new ItemStack(Block.stairSingle, 3, 4), new Object[]{"###", Character.valueOf('#'), Block.brick});
+		this.addRecipe(new ItemStack(Block.stairSingle, 3, 4), new Object[]{"###", Character.valueOf('#'), Block.brick});
 
-		if(Block.config.getProperty("ModernWoodButtonRecipe").equals("1")) {
-			this.addRecipe("WoodButton", new ItemStack(Block.buttonWood, 1), new Object[]{"#", Character.valueOf('#'), Block.planks});
-		} else {
-			this.addRecipe("WoodButton", new ItemStack(Block.buttonWood, 1), new Object[]{"#", "#", Character.valueOf('#'), Block.wood});
-		}
+		this.addRecipe(new ItemStack(Block.buttonWood, 1), new Object[]{"#", "#", Character.valueOf('#'), Block.wood});
 
-		if(Block.config.getProperty("ModernStoneButtonRecipe").equals("1")) {
-			this.addRecipe(new ItemStack(Block.button, 1), new Object[]{"#", Character.valueOf('#'), Block.stone});
-		} else {
-			this.addRecipe(new ItemStack(Block.button, 1), new Object[]{"#", "#", Character.valueOf('#'), Block.stone});
-		}
+		this.addRecipe(new ItemStack(Block.button, 1), new Object[]{"#", "#", Character.valueOf('#'), Block.stone});
 
 
-		this.addRecipe("CobwebRecipe", new ItemStack(Block.web, 1), new Object[]{"###", "#S#", "###", Character.valueOf('#'), Item.silk, Character.valueOf('S'), Item.slimeBall});
+		this.addRecipe(new ItemStack(Block.web, 1), new Object[]{"###", "#S#", "###", Character.valueOf('#'), Item.silk, Character.valueOf('S'), Item.slimeBall});
     //BlockBackports ModEnd
-    
+
     //RedstoneBlock ModStart
-		this.addRecipe("RedstoneBlock", new ItemStack(Block.blockRedstone, 1), new Object[]{"###", "###", "###", Character.valueOf('#'), Item.redstone});
+		this.addRecipe(new ItemStack(Block.blockRedstone, 1), new Object[]{"###", "###", "###", Character.valueOf('#'), Item.redstone});
 		this.addShapelessRecipe(new ItemStack(Item.redstone, 9), new Object[]{new ItemStack(Block.blockRedstone, 1)});
     //RedstoneBlock ModEnd
-    
+
     //CoalBlock ModStart
-		this.addRecipe("CoalBlock", new ItemStack(Block.blockCoal, 1), new Object[]{"###", "###", "###", Character.valueOf('#'), Item.coal});
+		this.addRecipe(new ItemStack(Block.blockCoal, 1), new Object[]{"###", "###", "###", Character.valueOf('#'), Item.coal});
 		this.addShapelessRecipe(new ItemStack(Item.coal, 9), new Object[]{new ItemStack(Block.blockCoal, 1)});
     //CoalBlock ModEnd
 
@@ -141,12 +128,7 @@ public class CraftingManager {
 		System.out.println(this.recipes.size() + " recipes");
 	}
 
-	void addRecipe(ItemStack var1, Object... var2) {
-		this.addRecipe((String)null, var1, var2);
-	}
-
-	//BlockBackports ModStart
-	void addRecipe(String configKey, ItemStack var1, Object... var2) {
+	ShapedRecipes addRecipe(ItemStack var1, Object... var2) {
 		String var3 = "";
 		int var4 = 0;
 		int var5 = 0;
@@ -197,11 +179,8 @@ public class CraftingManager {
 
 		ShapedRecipes recipe = new ShapedRecipes(var5, var6, var14, var1);
 		this.recipes.add(recipe);
-		if(configKey != null) {
-			this.configGatedRecipes.put(recipe, configKey);
-		}
+		return recipe;
 	}
-	//BlockBackports ModEnd
 
 	void addShapelessRecipe(ItemStack var1, Object... var2) {
 		ArrayList var3 = new ArrayList();
@@ -229,13 +208,11 @@ public class CraftingManager {
 	public ItemStack findMatchingRecipe(InventoryCrafting var1) {
 		for(int var2 = 0; var2 < this.recipes.size(); ++var2) {
 			IRecipe var3 = (IRecipe)this.recipes.get(var2);
+			if(var3 == this.disabledGoldenAppleRecipe) {
+				continue;
+			}
+
 			if(var3.matches(var1)) {
-				//BlockBackports ModStart
-				String configKey = (String)this.configGatedRecipes.get(var3);
-				if(configKey != null && Block.config.getProperty(configKey).equals("0")) {
-					continue;
-				}
-				//BlockBackports ModEnd
 				return var3.getCraftingResult(var1);
 			}
 		}

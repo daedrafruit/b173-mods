@@ -67,13 +67,9 @@ public abstract class GuiContainer extends GuiScreen {
 			String var14 = "";
 
       //CrashSlabFix ModStart
-			if(Block.config.getProperty("CrashSlabFix").equals("1")) {
-				try {
-					var14 = ("" + StringTranslate.getInstance().translateNamedKey(var6.getStack().getItemName())).trim();
-				} catch (Exception var12) {
-				}
-			} else {
+			try {
 				var14 = ("" + StringTranslate.getInstance().translateNamedKey(var6.getStack().getItemName())).trim();
+			} catch (Exception var12) {
 			}
       //CrashSlabFix ModEnd
 

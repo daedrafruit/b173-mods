@@ -16,7 +16,7 @@ public class EntityPlayerSP extends EntityPlayer {
 		this.dimension = var4;
 		if(var3 != null && var3.username != null && var3.username.length() > 0) {
       //SkinFix ModStart
-			this.skinUrl = Block.config.getProperty("SkinFix").equals("1") ? ModRetrieveSkin.getSkinURL(this.username) : "http://s3.amazonaws.com/MinecraftSkins/" + var3.username + ".png";
+			this.skinUrl = ModRetrieveSkin.getSkinURL(this.username);
       //SkinFix ModEnd
 		}
 
