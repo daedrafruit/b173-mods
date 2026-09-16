@@ -19,6 +19,16 @@ public class PlayerControllerSP extends PlayerController {
 		var1.rotationYaw = -180.0F;
 	}
 
+	public boolean sendPlaceBlock(EntityPlayer player, World var2, ItemStack var3, int var4, int var5, int var6, int var7) {
+		int blockID = var2.getBlockId(var4, var5, var6);
+    //SneakPlace ModStart
+    if (player.isSneaking()) {
+      return var3.useItem(player, var2, var4, var5, var6, var7);
+    }
+    //SneakPlace ModEnd
+    return blockID > 0 && Block.blocksList[blockID].blockActivated(var2, var4, var5, var6, player) ? true : (var3 == null ? false : var3.useItem(player, var2, var4, var5, var6, var7));
+
+	}
 	public boolean sendBlockRemoved(int var1, int var2, int var3, int var4) {
 		int var5 = this.mc.theWorld.getBlockId(var1, var2, var3);
 		int var6 = this.mc.theWorld.getBlockMetadata(var1, var2, var3);
