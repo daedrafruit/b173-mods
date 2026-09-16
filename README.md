@@ -45,14 +45,18 @@ Features:
 - Sponge recipe (4 slime balls around yellow wool)
 - Gold sword can pick up fire burning over netherrack, which chainmail-armor recipe craftable  
 - Fixes rendering jitter and falling-block glitches at extreme "far lands" coordinates  
+- Block are placeable on inventories (chest, furnaces, etc) by sneaking   
 
 Debugging tips:  
 in Minecraft.java:  
 ```java
 //press F4 to give item
 if(Keyboard.getEventKey() == Keyboard.KEY_F4) {
-    // item id, size, damage
-    ItemStack stack = new ItemStack(285, 1, 100);
-    this.thePlayer.inventorySlots.putStackInSlot(1, stack);
+    int[] ids = {323, 54};
+    for (int i = 0; i < ids.length; i++) {
+        // item id, size, damage
+        ItemStack stack = new ItemStack(ids[i], 1, 0);
+        this.thePlayer.inventory.addItemStackToInventory(stack);
+    }
 }
 ```
